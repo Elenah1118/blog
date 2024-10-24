@@ -1,38 +1,168 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', serif;
+  background-color: white;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Cabecera superior */
+.top-bar {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 40px 0; /* Tamaño inicial del top-bar más amplio */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Aseguramos que el top-bar siempre esté encima */
+  transition: padding 0.45s ease, height 0.45s ease; /* Transición para reducir la cabecera */
 }
 
-.App-link {
-  color: #61dafb;
+/* Reducir el tamaño del top-bar cuando se hace scroll */
+.top-bar.scrolled {
+  padding: 20px 0; /* Reduce el padding cuando el usuario hace scroll */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo img {
+  height: 80px; /* Tamaño inicial más grande */
+  transition: height 0.3s ease; /* Transición suave para reducir el tamaño del logo */
+}
+
+/* Reducir el tamaño del logo cuando se hace scroll */
+.top-bar.scrolled .logo img {
+  height: 50px; /* Logo más pequeño al hacer scroll */
+}
+
+/* Botones de iniciar sesión y suscribirse */
+.top-actions {
+  position: absolute;
+  right: 50px;
+  display: flex;
+  gap: 20px;
+  z-index: 1001; /* Mantener botones por encima del top-bar */
+}
+
+.login-button, .subscribe-button {
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-button:hover, .subscribe-button:hover {
+  color: #ff4081;
+}
+
+/* Barra de navegación */
+.navbar-wrapper {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 100px; /* Aseguramos que el navbar siempre esté pegado al top-bar */
+  z-index: 999; /* Aseguramos que el navbar esté debajo del top-bar */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Suave transición de desplazamiento */
+}
+
+/* Mantener la barra de navegación unida al top-bar */
+.navbar-wrapper.scroll-down {
+  top: 100px; /* Mantener pegada al top-bar siempre */
+  transform: translateY(0); /* Mantener la barra visible al hacer scroll hacia arriba */
+  opacity: 1; /* La barra vuelve a ser visible */
+}
+
+/* Desplazar la barra hacia arriba al hacer scroll hacia abajo */
+.navbar-wrapper.scroll-up {
+  top: 100px; /* Mantener la posición fija */
+  transform: translateY(-100%); /* Desplazar la barra fuera de la pantalla */
+  opacity: 0; /* La barra se vuelve invisible */
+}
+
+/* Ajuste del navbar al hacer scroll */
+.navbar-wrapper.scrolled-navbar {
+  top: 58px; /* Mantener siempre pegada al top-bar */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Suave transición de desplazamiento */
+
+}
+
+/* Línea entre navbar y contenido */
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #eaeaea;
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: rgb(255, 255, 255);
+  padding: 10px 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff4081;
+}
+
+/* Posts */
+#posts {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.post {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.post h2 {
+  color: #333;
+  font-size: 22px;
+}
+
+.post p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Separación entre la barra de navegación y el contenido */
+#contenido {
+  padding-top: 180px; /* Aseguramos que haya suficiente espacio sin huecos grandes */
+}
+
+h1 {
+  color: #333;
+  margin-top: 20px; /* Ajustamos el espacio del texto de bienvenida */
 }
