@@ -91,8 +91,15 @@ body {
 .navbar-wrapper.scrolled-navbar {
   top: 58px; /* Mantener siempre pegada al top-bar */
   transition: transform 0.5s ease, opacity 0.5s ease; /* Suave transición de desplazamiento */
-
 }
+
+/* Ocultar el contenido principal cuando se muestran las subcategorías 
+.nav-item:hover ~ #contenido,
+.subcategories:hover ~ #contenido {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}*/
 
 /* Línea entre navbar y contenido */
 .line {
@@ -122,7 +129,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 16px;
   transition: color 0.3s ease;
@@ -131,6 +138,53 @@ body {
 .nav-links a:hover {
   color: #ff4081;
 }
+
+/* Subcategorías */
+.subcategories {
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Alineación y estilo general */
+.subcategories.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mostrar las subcategorías al pasar el ratón 
+.nav-item:hover .subcategories,
+.subcategories:hover {
+  display: block; /* Cambiamos a block para que las subcategorías se vean como una lista 
+  opacity: 1; /* Hacer visible el contenedor 
+  transform: translateY(0); /* Desplazarlo suavemente hacia abajo 
+}*/
+
+/* Alinear las subcategorías en una lista vertical 
+.subcategories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Justificar a la izquierda 
+}
+
+.subcategories li {
+  padding: 10px 0;
+}
+
+.subcategories a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  display: block; /* Aseguramos que cada enlace ocupe toda la línea 
+}
+
+.subcategories a:hover {
+  color: #ff4081;
+}*/
+
 
 /* Posts */
 #posts {
