@@ -124,62 +124,70 @@ body {
   color: #ff4081; /* Color de texto al pasar el ratón */
 }
 
-/* Contenedor desplegable para subcategorías */
+/* Contenedor de las subcategorías */
 .subcategories {
   display: none; /* Oculta las subcategorías inicialmente */
   position: absolute;
   top: 100%; /* Ubica justo debajo del nav-item */
   left: 0;
   width: 100%; /* Ancho completo de la pantalla */
-  height: 48vh; /* 45% de la altura del viewport */
-  background-color: rgb(240, 240, 240); /* Fondo gris claro */
+  background-color: white; /* Fondo blanco */
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  padding: 20px;
+  padding: 30px; /* Espaciado interno */
   opacity: 0;
   transform: translateY(-20px); /* Posiciona ligeramente hacia arriba para efecto de transición */
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 998;
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  
 }
 
 /* Muestra las subcategorías activas */
 .subcategories.active {
-  display: block; /* Muestra el contenedor de subcategorías activo */
+  display: flex; /* Cambiamos a flex para un mejor control */
   opacity: 1; /* Hace visible el contenedor */
   transform: translateY(0); /* Restaura su posición */
 }
 
-/* Estilos para las subcategorías en cuadrícula */
+/* Contenedor de los enlaces de subcategorías en columna */
 .subcategories ul {
   list-style: none;
-  padding: 0px;
+  padding: 0;
   margin: 0;
-  min-width: 50px;                   /* Ancho mínimo para cada columna */
-  margin-right: 1300px;                 /* Espacio entre columnas */
+  width: 20%; /* Ancho del contenedor de la columna */
+  display: flex;
+  flex-direction: column; /* Alinear enlaces en columna */
+  gap: 10px; /* Espacio entre los elementos de la columna */
 }
 
+/* Cada subcategoría en columna */
 .subcategories li {
-  width: auto;                           /* Cada elemento ocupa el 20% de ancho */
-  text-align: left;                     /* Alinear texto a la izquierda */
-  margin-bottom: 15px;  
-  padding: 8px 0;                     /* Espaciado entre elementos */
-   
+  text-align: left; /* Alinear texto a la izquierda */
 }
 
 .subcategories a {
   display: block;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #ffffff; /* Fondo blanco */
+  font-family: Arial, sans-serif; /* Tipografía similar */
   color: #333; /* Color de texto gris oscuro */
-  font-size: 16px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición en el fondo y texto */
+  font-size: 14px; /* Tamaño de fuente */
+  text-decoration: none; /* Eliminar subrayado */
+  padding: 0; /* Espaciado interno de los enlaces */
+  transition: color 0.3s ease;
+  margin-bottom: 15px; /* Espacio entre enlaces */
+
 }
 
+/* Efecto al pasar el ratón sobre los enlaces */
 .subcategories a:hover {
-  background-color: #ff4081; /* Fondo rosado al pasar el ratón */
-  color: #fff; /* Texto blanco al hacer hover */
+  color: #000; /* Cambia el color del texto a negro al pasar el ratón */
+  font-weight: bold; /* Negrita al pasar el ratón */
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15); /* Sombra leve para efecto 3D */
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+
 }
+
 
 /* Estilos para la sección de posts */
 #posts {
