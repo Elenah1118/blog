@@ -1,9 +1,9 @@
-/* Estilos generales */
+/* Estilos generales de la página */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', serif;
-  background-color: white;
+  background-color: white; /* Fondo blanco */
 }
 
 .App {
@@ -12,42 +12,42 @@ body {
 
 /* Cabecera superior */
 .top-bar {
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-  padding: 40px 0; /* Tamaño inicial del top-bar más amplio */
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  padding: 40px 0; /* Espaciado vertical amplio en la parte superior */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  position: fixed; /* Fija la cabecera en la parte superior */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Aseguramos que el top-bar siempre esté encima */
-  transition: padding 0.45s ease, height 0.45s ease; /* Transición para reducir la cabecera */
+  z-index: 1000; /* Superposición alta para mantenerse visible */
+  transition: padding 0.45s ease, height 0.45s ease; /* Transición para reducir el tamaño al hacer scroll */
 }
 
 /* Reducir el tamaño del top-bar cuando se hace scroll */
 .top-bar.scrolled {
-  padding: 20px 0; /* Reduce el padding cuando el usuario hace scroll */
+  padding: 20px 0; /* Disminuye el espaciado al hacer scroll */
 }
 
 .logo img {
-  height: 80px; /* Tamaño inicial más grande */
-  transition: height 0.3s ease; /* Transición suave para reducir el tamaño del logo */
+  height: 80px; /* Tamaño inicial grande */
+  transition: height 0.3s ease; /* Transición para reducir el tamaño de la imagen del logo */
 }
 
 /* Reducir el tamaño del logo cuando se hace scroll */
 .top-bar.scrolled .logo img {
-  height: 50px; /* Logo más pequeño al hacer scroll */
+  height: 50px; /* Tamaño del logo al hacer scroll */
 }
 
 /* Botones de iniciar sesión y suscribirse */
 .top-actions {
   position: absolute;
-  right: 50px;
+  right: 50px; /* Alinea los botones a la derecha */
   display: flex;
-  gap: 20px;
-  z-index: 1001; /* Mantener botones por encima del top-bar */
+  gap: 20px; /* Espaciado entre los botones */
+  z-index: 1001; /* Mantiene los botones visibles sobre el top-bar */
 }
 
 .login-button, .subscribe-button {
@@ -56,69 +56,54 @@ body {
   color: black;
   font-size: 16px;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Efecto de transición para el color del texto */
 }
 
 .login-button:hover, .subscribe-button:hover {
-  color: #ff4081;
+  color: #ff4081; /* Cambia el color al pasar el ratón */
 }
 
-/* Barra de navegación */
+/* Barra de navegación principal */
 .navbar-wrapper {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
   position: fixed;
-  top: 100px; /* Aseguramos que el navbar siempre esté pegado al top-bar */
-  z-index: 999; /* Aseguramos que el navbar esté debajo del top-bar */
-  transition: transform 0.8s ease, opacity 0.8s ease; /* Suave transición de desplazamiento */
+  top: 100px; /* Asegura que esté siempre pegado al top-bar */
+  z-index: 999; /* Superposición debajo del top-bar */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Transición suave de desplazamiento */
 }
 
-/* Mantener la barra de navegación unida al top-bar */
+/* Mantener la barra de navegación visible al hacer scroll hacia arriba */
 .navbar-wrapper.scroll-down {
-  top: 100px; /* Mantener pegada al top-bar siempre */
-  transform: translateY(0); /* Mantener la barra visible al hacer scroll hacia arriba */
-  opacity: 1; /* La barra vuelve a ser visible */
+  top: 100px;
+  transform: translateY(0); /* Sin desplazamiento vertical */
+  opacity: 1;
 }
 
-/* Desplazar la barra hacia arriba al hacer scroll hacia abajo */
+/* Ocultar la barra de navegación al hacer scroll hacia abajo */
 .navbar-wrapper.scroll-up {
-  top: 100px; /* Mantener la posición fija */
-  transform: translateY(-100%); /* Desplazar la barra fuera de la pantalla */
-  opacity: 0; /* La barra se vuelve invisible */
+  top: 100px;
+  transform: translateY(-100%); /* Desplaza la barra fuera de la pantalla */
+  opacity: 0;
 }
 
 /* Ajuste del navbar al hacer scroll */
 .navbar-wrapper.scrolled-navbar {
-  top: 58px; /* Mantener siempre pegada al top-bar */
-  transition: transform 0.5s ease, opacity 0.5s ease; /* Suave transición de desplazamiento */
+  top: 58px; /* Espacio de 58px debajo del top-bar */
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-/* Ocultar el contenido principal cuando se muestran las subcategorías 
-.nav-item:hover ~ #contenido,
-.subcategories:hover ~ #contenido {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}*/
-
-/* Línea entre navbar y contenido */
-.line {
-  width: 100%;
-  height: 1px;
-  background-color: #eaeaea;
-}
-
-/* Barra de navegación */
+/* Contenedor de enlaces de navegación */
 .navbar {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
   padding: 10px 0;
 }
 
 .nav-links {
-  list-style: none;
+  list-style: none; /* Elimina las viñetas en la lista */
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: center; /* Centra los enlaces */
+  gap: 30px; /* Espaciado entre cada enlace */
   margin: 0;
   padding: 0;
 }
@@ -129,67 +114,77 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0); /* Color de texto negro */
   font-weight: bold;
   font-size: 16px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Efecto de transición en el color */
 }
 
 .nav-links a:hover {
-  color: #ff4081;
+  color: #ff4081; /* Color de texto al pasar el ratón */
 }
 
-/* Subcategorías */
+/* Contenedor desplegable para subcategorías */
 .subcategories {
-  display: none;
+  display: none; /* Oculta las subcategorías inicialmente */
+  position: absolute;
+  top: 100%; /* Ubica justo debajo del nav-item */
+  left: 0;
+  width: 100%; /* Ancho completo de la pantalla */
+  height: 48vh; /* 45% de la altura del viewport */
+  background-color: rgb(240, 240, 240); /* Fondo gris claro */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  padding: 20px;
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-20px); /* Posiciona ligeramente hacia arriba para efecto de transición */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 998;
 }
 
-/* Alineación y estilo general */
+/* Muestra las subcategorías activas */
 .subcategories.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
+  display: block; /* Muestra el contenedor de subcategorías activo */
+  opacity: 1; /* Hace visible el contenedor */
+  transform: translateY(0); /* Restaura su posición */
 }
 
-/* Mostrar las subcategorías al pasar el ratón 
-.nav-item:hover .subcategories,
-.subcategories:hover {
-  display: block; /* Cambiamos a block para que las subcategorías se vean como una lista 
-  opacity: 1; /* Hacer visible el contenedor 
-  transform: translateY(0); /* Desplazarlo suavemente hacia abajo 
-}*/
-
-/* Alinear las subcategorías en una lista vertical 
+/* Estilos para las subcategorías en cuadrícula */
 .subcategories ul {
   list-style: none;
-  padding: 0;
+  padding: 0px;
   margin: 0;
-  text-align: left; /* Justificar a la izquierda 
+  min-width: 50px;                   /* Ancho mínimo para cada columna */
+  margin-right: 1300px;                 /* Espacio entre columnas */
 }
 
 .subcategories li {
-  padding: 10px 0;
+  width: auto;                           /* Cada elemento ocupa el 20% de ancho */
+  text-align: left;                     /* Alinear texto a la izquierda */
+  margin-bottom: 15px;  
+  padding: 8px 0;                     /* Espaciado entre elementos */
+   
 }
 
 .subcategories a {
-  color: #333;
-  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Color de texto gris oscuro */
   font-size: 16px;
-  display: block; /* Aseguramos que cada enlace ocupe toda la línea 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición en el fondo y texto */
 }
 
 .subcategories a:hover {
-  color: #ff4081;
-}*/
+  background-color: #ff4081; /* Fondo rosado al pasar el ratón */
+  color: #fff; /* Texto blanco al hacer hover */
+}
 
-
-/* Posts */
+/* Estilos para la sección de posts */
 #posts {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Fondo gris claro */
 }
 
 .post {
@@ -197,8 +192,8 @@ body {
   padding: 20px;
   margin: 20px auto;
   max-width: 600px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border: 1px solid #ddd; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 .post h2 {
@@ -211,12 +206,12 @@ body {
   font-size: 16px;
 }
 
-/* Separación entre la barra de navegación y el contenido */
+/* Espaciado entre la barra de navegación y el contenido */
 #contenido {
-  padding-top: 180px; /* Aseguramos que haya suficiente espacio sin huecos grandes */
+  padding-top: 180px; /* Espacio suficiente sin huecos grandes */
 }
 
 h1 {
   color: #333;
-  margin-top: 20px; /* Ajustamos el espacio del texto de bienvenida */
+  margin-top: 20px; /* Ajusta el espacio superior */
 }

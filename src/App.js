@@ -8,8 +8,6 @@ function App() {
   const timeoutRef = useRef(null); // Referencia para el temporizador
   const [activeSubcategories, setActiveSubcategories] = useState(null); // Controlar qué subcategoría está activa
 
-
-
   // Detectar el desplazamiento del usuario
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +40,6 @@ function App() {
     };
   }, [lastScrollTop]);
 
-
   // Manejar hover con temporizador
   const handleMouseEnter = (category) => {
     clearTimeout(timeoutRef.current); // Cancelar cualquier temporizador previo
@@ -54,7 +51,6 @@ function App() {
       setActiveSubcategories(null); // Restablecer subcategorías activas
     }, 400); // Retraso de 400ms
   };
-
 
   return (
     <div className="App">
@@ -73,113 +69,125 @@ function App() {
       <div className={`navbar-wrapper ${isScrollingDown ? 'scroll-up' : 'scroll-down'} ${isScrolled ? 'scrolled-navbar' : ''}`}>
         <nav className="navbar">
           <ul className="nav-links">
-          <li className="nav-item">
-          <a href="#new">New</a>
+            <li className="nav-item">
+              <a href="#new">New</a>
             </li>
-            <li 
+            <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'bestsellers')}
+              onMouseEnter={() => handleMouseEnter('bestsellers')}
               onMouseLeave={handleMouseLeave}
-              >
+            >
               <a href="#bestsellers">Best Sellers</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'bestsellers' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#lipstick">Lipstick</a></li>
-                  <li><a href="#lipgloss">Lip Gloss</a></li>
-                  <li><a href="#liquidlipstick">Liquid Lipstick</a></li>
-                  <li><a href="#lipline">Lip Liner</a></li>
-                  <li><a href="#lipprimer">Lip Primer</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'bestsellers' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#lipstick">Lipstick</a></li>
+                    <li><a href="#lipgloss">Lip Gloss</a></li>
+                    <li><a href="#liquidlipstick">Liquid Lipstick</a></li>
+                    <li><a href="#lipline">Lip Liner</a></li>
+                    <li><a href="#lipprimer">Lip Primer</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'face')}
+              onMouseEnter={() => handleMouseEnter('face')}
               onMouseLeave={handleMouseLeave}
-              >
+            >
               <a href="#maquillaje">Face</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'face' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#foundation">Foundation</a></li>
-                  <li><a href="#primer">Primer</a></li>
-                  <li><a href="#powder">Powder</a></li>
-                  <li><a href="#concealer">Concealer</a></li>
-                  <li><a href="#blusher">Blusher</a></li>
-                  <li><a href="#bronzer">Bronzer</a></li>
-                  <li><a href="#contour">Contour</a></li>
-                  <li><a href="#setting-spray">Setting Spray</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'face' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#foundation">Foundation</a></li>
+                    <li><a href="#primer">Primer</a></li>
+                    <li><a href="#powder">Powder</a></li>
+                    <li><a href="#concealer">Concealer</a></li>
+                    <li><a href="#blusher">Blusher</a></li>
+                    <li><a href="#bronzer">Bronzer</a></li>
+                    <li><a href="#contour">Contour</a></li>
+                    <li><a href="#setting-spray">Setting Spray</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'lips')}
+              onMouseEnter={() => handleMouseEnter('lips')}
               onMouseLeave={handleMouseLeave}
-              >              
+            >
               <a href="#lips">Lips</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'lips' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#lipstick">Lipstick</a></li>
-                  <li><a href="#lipgloss">Lip Gloss</a></li>
-                  <li><a href="#liquidlipstick">Liquid Lipstick</a></li>
-                  <li><a href="#lipline">Lip Liner</a></li>
-                  <li><a href="#lipprimer">Lip Primer</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'lips' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#lipstick">Lipstick</a></li>
+                    <li><a href="#lipgloss">Lip Gloss</a></li>
+                    <li><a href="#liquidlipstick">Liquid Lipstick</a></li>
+                    <li><a href="#lipline">Lip Liner</a></li>
+                    <li><a href="#lipprimer">Lip Primer</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'eyes')}
+              onMouseEnter={() => handleMouseEnter('eyes')}
               onMouseLeave={handleMouseLeave}
-              >              
+            >
               <a href="#eyes">Eyes</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'eyes' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#eyeliner">Eyeliner</a></li>
-                  <li><a href="#mascara">Mascara</a></li>
-                  <li><a href="#eyeshadow">Eyeshadow</a></li>
-                  <li><a href="#brows">Brows</a></li>
-                  <li><a href="#lashes">Lashes</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'eyes' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#eyeliner">Eyeliner</a></li>
+                    <li><a href="#mascara">Mascara</a></li>
+                    <li><a href="#eyeshadow">Eyeshadow</a></li>
+                    <li><a href="#brows">Brows</a></li>
+                    <li><a href="#lashes">Lashes</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'brushes')}
+              onMouseEnter={() => handleMouseEnter('brushes')}
               onMouseLeave={handleMouseLeave}
-              >              
+            >
               <a href="#brushes">Brushes</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'brushes' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#eyebrushes">Eye Brushes</a></li>
-                  <li><a href="#facebrushes">Face Brushes</a></li>
-                  <li><a href="#lipbrushes">Lip Brushes</a></li>
-                  <li><a href="#brushcleanser">Brush Cleanser</a></li>
-                  <li><a href="#beautyblenders">Beauty Blenders</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'brushes' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#eyebrushes">Eye Brushes</a></li>
+                    <li><a href="#facebrushes">Face Brushes</a></li>
+                    <li><a href="#lipbrushes">Lip Brushes</a></li>
+                    <li><a href="#brushcleanser">Brush Cleanser</a></li>
+                    <li><a href="#beautyblenders">Beauty Blenders</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li
               className="nav-item"
-              onMouseEnter={(e) => handleMouseEnter(e, 'tools')}
+              onMouseEnter={() => handleMouseEnter('tools')}
               onMouseLeave={handleMouseLeave}
-              >              
+            >
               <a href="#tools">Tools</a>
               {/* Subcategorías */}
-              <div className={`subcategories ${activeSubcategories === 'tools' ? 'active' : ''}`}>
-                <ul>
-                  <li><a href="#applicators">Applicators</a></li>
-                  <li><a href="#makeupbags">Makeup Bags</a></li>
-                  <li><a href="#accessories">Accessories</a></li>
-                  <li><a href="#containers">Containers</a></li>
-                  <li><a href="#lashes">Lashes</a></li>
-                </ul>
-              </div>
+              {activeSubcategories === 'tools' && (
+                <div className="subcategories active">
+                  <ul>
+                    <li><a href="#applicators">Applicators</a></li>
+                    <li><a href="#makeupbags">Makeup Bags</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#containers">Containers</a></li>
+                    <li><a href="#lashes">Lashes</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
           </ul>
         </nav>
