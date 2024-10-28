@@ -104,7 +104,7 @@ body {
   list-style: none; /* Elimina las viñetas en la lista */
   display: flex;
   justify-content: center; /* Centra los enlaces */
-  gap: 30px; /* Espaciado entre cada enlace */
+  gap: 60px; /* Espaciado entre cada enlace */
   margin: 0;
   padding: 0;
 }
@@ -122,7 +122,9 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff4081; /* Color de texto al pasar el ratón */
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+  text-underline-offset: 3px; /* Ajusta la distancia entre el texto y el subrayado */
+  text-decoration-thickness: 1px; /* Controla el grosor del subrayado */
 }
 
 /* Contenedor de las subcategorías */
@@ -186,7 +188,7 @@ body {
   font-weight: bold;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15); /* Sombra leve para efecto 3D */
   text-decoration: underline; /* Subrayado al pasar el ratón */
-
+  text-underline-offset: 2px; /* Ajusta la distancia entre el texto y el subrayado */
 }
 
 
@@ -259,7 +261,7 @@ h1 {
 .link-item h3 {
   font-size: 16px;
   margin: 5px 0;
-  font-weight: bold;
+  font-weight: bold; /*exto aparezca más grueso o en negrita*/
   
 }
 
@@ -278,4 +280,58 @@ h1 {
 
 .link-item:hover h3, .link-item:hover p {
   color: #000; /* Cambia el color del texto en hover */
+}
+
+
+/* Contenedor del Carrusel */
+.carousel-container {
+  position: relative;
+  width: 95%; /* 80% del ancho de la página */
+  height: 35vh; /* 25% del alto de la página */
+  margin: auto; /* Centrado horizontal */
+  background-color: white; /* Fondo blanco */
+  overflow: hidden; /* Oculta el contenido fuera del contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo de cada slide */
+.carousel-slide img {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 100%; /* Ocupa todo el alto del contenedor */
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Transición suave */
+}
+
+/* Botones de navegación */
+.carousel-button {
+  position: absolute;
+  top: 5%; /* Ajuste de margen superior */
+  width: 3%; /* Ancho del botón */
+  height: 90%; /* Ocupa el 90% del alto del contenedor */
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* Por encima de las imágenes */
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre los botones */
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Posicionamiento de los botones */
+.carousel-button.left {
+  left: 0; /* Botón a la izquierda */
+}
+
+.carousel-button.right {
+  right: 0; /* Botón a la derecha */
 }

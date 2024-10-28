@@ -8,6 +8,13 @@ function App() {
   const timeoutRef = useRef(null); // Referencia para el temporizador
   const [activeSubcategories, setActiveSubcategories] = useState(null); // Controlar qué subcategoría está activa
 
+  // Agregar estado adicional para las imágenes del carrusel
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Índice de la imagen actual
+  const images = [ // Lista de URLs de imágenes
+  'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg',
+  'https://burst.shopifycdn.com/photos/makeup-beauty-flatlay.jpg?width=1000&format=pjpg&exif=0&iptc=0',
+  ];
+
   // Detectar el desplazamiento del usuario
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +59,23 @@ function App() {
     }, 400); // Retraso de 400ms
   };
 
+  // Moverse al siguiente slide cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length); // Avanza a la siguiente imagen
+    }, 5000); // Cambia de imagen cada 5 segundos
+    return () => clearInterval(interval);
+  }, [images.length]);
+      
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((currentImageIndex + 1) % images.length); // Avanza a la siguiente imagen
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImageIndex((currentImageIndex - 1 + images.length) % images.length); // Retrocede a la imagen anterior
+  };
+
   return (
     <div className="App">
       {/* Cabecera superior con logo y botones */}
@@ -70,14 +94,14 @@ function App() {
         <nav className="navbar">
           <ul className="nav-links">
             <li className="nav-item">
-              <a href="#new">New</a>
+              <a href="#new">NEW</a>
             </li>
             <li
               className="nav-item"
               onMouseEnter={() => handleMouseEnter('bestsellers')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#bestsellers">Best Sellers</a>
+              <a href="#bestsellers">BEST SELLER</a>
               {/* Subcategorías */}
               {activeSubcategories === 'bestsellers' && (
                 <div className="subcategories active">
@@ -114,7 +138,7 @@ function App() {
               onMouseEnter={() => handleMouseEnter('face')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#maquillaje">Face</a>
+              <a href="#maquillaje">FACE</a>
               {/* Subcategorías */}
               {activeSubcategories === 'face' && (
                 <div className="subcategories active">
@@ -136,7 +160,7 @@ function App() {
               onMouseEnter={() => handleMouseEnter('lips')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#lips">Lips</a>
+              <a href="#lips">LIPS</a>
               {/* Subcategorías */}
               {activeSubcategories === 'lips' && (
                 <div className="subcategories active">
@@ -155,7 +179,7 @@ function App() {
               onMouseEnter={() => handleMouseEnter('eyes')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#eyes">Eyes</a>
+              <a href="#eyes">EYES</a>
               {/* Subcategorías */}
               {activeSubcategories === 'eyes' && (
                 <div className="subcategories active">
@@ -174,7 +198,7 @@ function App() {
               onMouseEnter={() => handleMouseEnter('brushes')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#brushes">Brushes</a>
+              <a href="#brushes">BRUSHES</a>
               {/* Subcategorías */}
               {activeSubcategories === 'brushes' && (
                 <div className="subcategories active">
@@ -193,7 +217,7 @@ function App() {
               onMouseEnter={() => handleMouseEnter('tools')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#tools">Tools</a>
+              <a href="#tools">TOOLS</a>
               {/* Subcategorías */}
               {activeSubcategories === 'tools' && (
                 <div className="subcategories active">
@@ -213,6 +237,20 @@ function App() {
 
       {/* Contenido principal */}
       <section id="contenido">
+          {/* Contenedor del Carrusel */}
+        <div className="carousel-container">
+          <div className="carousel-slide">
+            <a href="#link1" target="_blank" rel="noopener noreferrer">
+              <img src={images[currentImageIndex]} alt="Imagen de Carrusel" />
+            </a>
+          </div>
+          <button className="carousel-button left" onClick={handlePreviousImage}>
+            &#9664; {/* Flecha hacia la izquierda */}
+          </button>
+          <button className="carousel-button right" onClick={handleNextImage}>
+            &#9654; {/* Flecha hacia la derecha */}
+          </button>
+        </div>
         <h1>Bienvenida a tu blog de maquillaje</h1>
         <p>Este es el contenido inicial de tu blog. Continuaremos añadiendo más elementos y diseño.</p>
       </section>
