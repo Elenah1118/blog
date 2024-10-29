@@ -287,9 +287,9 @@ h1 {
 .carousel-container {
   position: relative;
   width: 95%; /* 80% del ancho de la página */
-  height: 35vh; /* 25% del alto de la página */
+  height: 40vh; /* 25% del alto de la página */
   margin: auto; /* Centrado horizontal */
-  background-color: white; /* Fondo blanco */
+  background-color: rgb(218, 218, 218); /* Fondo blanco */
   overflow: hidden; /* Oculta el contenido fuera del contenedor */
   display: flex;
   align-items: center;
@@ -299,7 +299,7 @@ h1 {
 /* Estilo de cada slide */
 .carousel-slide img {
   width: 100%; /* Ocupa todo el ancho del contenedor */
-  height: 100%; /* Ocupa todo el alto del contenedor */
+  height: 80%; /* Ocupa todo el alto del contenedor */
   object-fit: cover;
   transition: transform 0.5s ease; /* Transición suave */
 }
@@ -307,31 +307,65 @@ h1 {
 /* Botones de navegación */
 .carousel-button {
   position: absolute;
-  top: 5%; /* Ajuste de margen superior */
-  width: 3%; /* Ancho del botón */
-  height: 90%; /* Ocupa el 90% del alto del contenedor */
-  background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
-  border: none;
-  color: white;
-  font-size: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; /* Fondo transparente para no destacar */
+  border: none; /* Sin borde */
+  color: rgba(16, 16, 16, 0.491); /* Color blanco para el icono o flecha */
+  font-size: 2rem; /* Tamaño adecuado del icono */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10; /* Por encima de las imágenes */
-  transition: background-color 0.3s ease;
+  z-index: 10; /* Asegura que esté encima de la imagen */
+  padding: 5px; /* Espaciado pequeño */
+  transition: transform 0.3s ease; /* Suave transición para el efecto de desplazamiento */
 }
 
-/* Efecto al pasar el ratón sobre los botones */
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Posicionamiento de los botones */
 .carousel-button.left {
-  left: 0; /* Botón a la izquierda */
+  left: 10px;
+}
+.carousel-button.left:hover {
+  transform: translate(-8px, -50%); /* Efecto de desplazamiento hacia la izquierda */
+}
+.carousel-button.right {
+  right: 10px;
+}
+.carousel-button.right:hover {
+  transform: translate(8px, -50%); /* Efecto de desplazamiento hacia la derecha */
 }
 
-.carousel-button.right {
-  right: 0; /* Botón a la derecha */
+
+
+/* Asegúrate de que estas reglas estén en tu App.css */
+
+.carousel-indicators {
+  position: absolute; /* Permite posicionar los indicadores respecto al contenedor */
+  bottom: 10px; /* Ajusta la distancia desde la parte inferior */
+  left: 50%; /* Centra los indicadores horizontalmente */
+  transform: translateX(-50%); /* Compensa el margen del 50% */
+  display: flex; /* Muestra los indicadores en línea */
+  justify-content: center; /* Centra los indicadores */
+}
+
+.indicator {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255); /* Color de fondo del indicador */
+  margin: 0 5px;
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.indicator.active {
+  transform: scale(1.2); /* Agranda el indicador activo */
+}
+
+/* Estilos para el círculo SVG */
+.progress-ring {
+  position: absolute;
+  top: -2.5px; /* Ajusta para centrar el círculo */
+  left: -2.5px; /* Ajusta para centrar el círculo */
+}
+
+.progress-ring circle {
+  transition: stroke-dashoffset 0.1s linear;
 }
