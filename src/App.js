@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import Footer from './Components/Footer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false); // Controla si hemos hecho scroll hacia abajo
@@ -7,6 +10,11 @@ function App() {
   const [lastScrollTop, setLastScrollTop] = useState(0); // Para comparar la posición actual con la anterior
   const timeoutRef = useRef(null); // Referencia para el temporizador
   const [activeSubcategories, setActiveSubcategories] = useState(null); // Controlar qué subcategoría está activa
+
+  const [progress, setProgress] = useState(0);
+  const duration = 5000; // Duración total en milisegundos (5 segundos)
+  const intervalRef = useRef(null);
+
 
   // Agregar estado adicional para las imágenes del carrusel
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Índice de la imagen actual
@@ -16,36 +24,52 @@ function App() {
   ];
 
   // Detectar el desplazamiento del usuario
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
 
-      if (scrollTop > lastScrollTop) {
-        // Si el usuario se desplaza hacia abajo
-        setIsScrollingDown(true);
-      } else {
-        // Si el usuario se desplaza hacia arriba
-        setIsScrollingDown(false);
-      }
+  //     if (scrollTop > lastScrollTop) {
+  //       // Si el usuario se desplaza hacia abajo
+  //       setIsScrollingDown(true);
+  //     } else {
+  //       // Si el usuario se desplaza hacia arriba
+  //       setIsScrollingDown(false);
+  //     }
 
-      // Si el usuario ha desplazado la página más de 100px, indicamos que ha hecho scroll
-      if (scrollTop > 100) {
-        setIsScrolled(true);
-      } else {
-        // Cuando el usuario llega a la parte superior, restauramos el tamaño inicial del top-bar
-        setIsScrolled(false);
-      }
+  //     // Si el usuario ha desplazado la página más de 100px, indicamos que ha hecho scroll
+  //     if (scrollTop > 100) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       // Cuando el usuario llega a la parte superior, restauramos el tamaño inicial del top-bar
+  //       setIsScrolled(false);
+  //     }
 
-      setLastScrollTop(scrollTop);
-    };
+  //     setLastScrollTop(scrollTop);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Limpieza del evento cuando el componente se desmonte
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollTop]);
+  //   // Limpieza del evento cuando el componente se desmonte
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [lastScrollTop]);
+
+// Alternativa a todo lo comentado arriba
+
+useEffect(() => {
+  const handleScroll = () => {
+     const scrollTop = window.scrollY;
+
+     setIsScrollingDown(scrollTop > lastScrollTop);
+     setIsScrolled(scrollTop > 100);
+     setLastScrollTop(scrollTop);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [lastScrollTop]);
+
 
   // Manejar hover con temporizador
   const handleMouseEnter = (category) => {
@@ -59,13 +83,20 @@ function App() {
     }, 400); // Retraso de 400ms
   };
 
-  // Moverse al siguiente slide cada 5 segundos
+  // Actualiza el progreso visual del temporizador
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length); // Avanza a la siguiente imagen
-    }, 5000); // Cambia de imagen cada 5 segundos
-    return () => clearInterval(interval);
-  }, [images.length]);
+    intervalRef.current = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress >= 100) {
+          setCurrentImageIndex((currentImageIndex + 1) % images.length); // Cambia la imagen
+          return 0; // Reinicia el progreso
+        }
+        return prevProgress + (100 / (duration / 100)); // Aumenta el progreso
+      });
+    }, 100);
+
+    return () => clearInterval(intervalRef.current); // Limpia el intervalo al desmontar el componente
+  }, [currentImageIndex, images.length]);
       
 
   const handleNextImage = () => {
@@ -252,12 +283,32 @@ function App() {
           </button>
           {/* Indicadores de puntos */}
           <div className="carousel-indicators">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`indicator ${currentImageIndex === index ? 'active' : ''}`}
-                onClick={() => setCurrentImageIndex(index)}
-              ></div>
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`indicator ${currentImageIndex === index ? 'active' : ''}`}
+              onClick={() => {
+                setCurrentImageIndex(index);
+                setProgress(0); // Reinicia el progreso al hacer clic
+              }}
+              >     
+                    {/* SVG solo para el indicador activo */}
+      {currentImageIndex === index && (
+        <svg className="progress-ring" width="24" height="24">
+          <circle
+            cx="7.5"
+            cy="7.5"
+            r="6.3"
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.7)"
+            strokeWidth="1.25"
+            strokeDasharray={1.5 * Math.PI * 9}
+            strokeDashoffset={1.5 * Math.PI * 9 * (1 - progress / 100)}// Calcula el progreso visual
+            transform="rotate(-90 7.5 7.5)" // Rotación de 90 grados hacia arriba con el centro en (12, 12)
+                  />
+                </svg>
+              )}
+              </div>              
             ))}
           </div>
         </div>
@@ -275,6 +326,7 @@ function App() {
           </div>
         ))}
       </section>
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-/* Estilos generales de la página */
+* Estilos generales de la página */
 body {
   margin: 0;
   padding: 0;
@@ -289,7 +289,7 @@ h1 {
   width: 95%; /* 80% del ancho de la página */
   height: 40vh; /* 25% del alto de la página */
   margin: auto; /* Centrado horizontal */
-  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  background-color: rgb(218, 218, 218); /* Fondo blanco */
   overflow: hidden; /* Oculta el contenido fuera del contenedor */
   display: flex;
   align-items: center;
@@ -334,57 +334,38 @@ h1 {
 
 
 
-/* Indicadores de paginación (puntos) */
+/* Asegúrate de que estas reglas estén en tu App.css */
+
 .carousel-indicators {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 20; /* Asegúrate de que sea mayor que otros elementos */
-  justify-content: center; /* Asegura que estén centrados horizontalmente */
+  position: absolute; /* Permite posicionar los indicadores respecto al contenedor */
+  bottom: 10px; /* Ajusta la distancia desde la parte inferior */
+  left: 50%; /* Centra los indicadores horizontalmente */
+  transform: translateX(-50%); /* Compensa el margen del 50% */
+  display: flex; /* Muestra los indicadores en línea */
+  justify-content: center; /* Centra los indicadores */
 }
 
-/* Estilo básico de cada punto */
-.carousel-indicators .indicator {
+.indicator {
+  position: relative;
   width: 10px;
   height: 10px;
-  background-color: rgb(255, 255, 255); /* Fondo blanco */
-  border-radius: 50%; /* Forma circular */
-  position: relative;
-}
-
-/* Círculo animado alrededor del punto activo */
-.carousel-indicators .indicator.active::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 18px;
-  height: 18px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  box-sizing: border-box;
-  border-color: transparent;
-  border-top-color: white;
-  animation: timerFillClockwise 5s linear forwards;
+  background-color: rgb(255, 255, 255); /* Color de fondo del indicador */
+  margin: 0 5px;
+  transition: transform 0.3s ease; /* Transición suave */
 }
 
-/* Animación de llenado progresivo en el sentido de las agujas del reloj */
-@keyframes timerFillClockwise {
-  0% {
-    transform: rotate(0deg);
-    border-color: transparent;
-    border-top-color: white;
-  }
-  100% {
-    transform: rotate(360deg);
-    border-color: white;
-  }
+.indicator.active {
+  transform: scale(1.2); /* Agranda el indicador activo */
 }
 
-/* Estilo para el indicador no activo */
-.carousel-indicators .indicator:not(.active)::before {
-  display: none; /* Quita el temporizador para puntos no activos */
+/* Estilos para el círculo SVG */
+.progress-ring {
+  position: absolute;
+  top: -2.5px; /* Ajusta para centrar el círculo */
+  left: -2.5px; /* Ajusta para centrar el círculo */
+}
+
+.progress-ring circle {
+  transition: stroke-dashoffset 0.1s linear;
 }
