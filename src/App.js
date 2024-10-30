@@ -27,7 +27,6 @@ function App() {
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const scrollTop = window.scrollY;
-<<<<<<< HEAD
 
   //     if (scrollTop > lastScrollTop) {
   //       // Si el usuario se desplaza hacia abajo
@@ -58,7 +57,6 @@ function App() {
 
 // Alternativa a todo lo comentado arriba
 
-=======
 
   //     if (scrollTop > lastScrollTop) {
   //       // Si el usuario se desplaza hacia abajo
@@ -89,7 +87,6 @@ function App() {
 
 // Alternativa a todo lo comentado arriba
 
->>>>>>> 370eff2ae5b012352a6f7523a8f39b5106283db3
 useEffect(() => {
   const handleScroll = () => {
      const scrollTop = window.scrollY;
