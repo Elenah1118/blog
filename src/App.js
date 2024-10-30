@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import Footer from './Components/Footer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false); // Controla si hemos hecho scroll hacia abajo
@@ -24,6 +27,36 @@ function App() {
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const scrollTop = window.scrollY;
+
+  //     if (scrollTop > lastScrollTop) {
+  //       // Si el usuario se desplaza hacia abajo
+  //       setIsScrollingDown(true);
+  //     } else {
+  //       // Si el usuario se desplaza hacia arriba
+  //       setIsScrollingDown(false);
+  //     }
+
+  //     // Si el usuario ha desplazado la página más de 100px, indicamos que ha hecho scroll
+  //     if (scrollTop > 100) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       // Cuando el usuario llega a la parte superior, restauramos el tamaño inicial del top-bar
+  //       setIsScrolled(false);
+  //     }
+
+  //     setLastScrollTop(scrollTop);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   // Limpieza del evento cuando el componente se desmonte
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [lastScrollTop]);
+
+// Alternativa a todo lo comentado arriba
+
 
   //     if (scrollTop > lastScrollTop) {
   //       // Si el usuario se desplaza hacia abajo
@@ -323,6 +356,7 @@ useEffect(() => {
           </div>
         ))}
       </section>
+      <Footer />
     </div>
   );
 }
