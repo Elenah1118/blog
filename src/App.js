@@ -273,10 +273,10 @@ useEffect(() => {
             </a>
           </div>
           <button className="carousel-button left" onClick={handlePreviousImage}>
-            &#9664; {/* Flecha hacia la izquierda */}
+            &#x2039; {/* Flecha hacia la izquierda */}
           </button>
           <button className="carousel-button right" onClick={handleNextImage}>
-            &#9654; {/* Flecha hacia la derecha */}
+            &#x203A; {/* Flecha hacia la derecha */}
           </button>
           {/* Indicadores de puntos */}
           <div className="carousel-indicators">
