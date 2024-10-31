@@ -1,141 +1,33 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import './App.css';
 import Footer from './Components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import useScrollDirection from './hooks/useScrollDirection';  //Codigo optimizado -NO BORRAR-
+import useHoverWithDelay from './hooks/useHoverWithDelay';  //Codigo optimizado -NO BORRAR-
+import useCarousel from './hooks/useCarousel';  //Codigo optimizado -NO BORRAR-
+
+
+
 
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false); // Controla si hemos hecho scroll hacia abajo
-  const [isScrollingDown, setIsScrollingDown] = useState(false); // Controla si estamos desplazándonos hacia abajo
-  const [lastScrollTop, setLastScrollTop] = useState(0); // Para comparar la posición actual con la anterior
-  const timeoutRef = useRef(null); // Referencia para el temporizador
-  const [activeSubcategories, setActiveSubcategories] = useState(null); // Controlar qué subcategoría está activa
 
-  const [progress, setProgress] = useState(0);
-  const duration = 5000; // Duración total en milisegundos (5 segundos)
-  const intervalRef = useRef(null);
+  const { isScrollingDown, isScrolled } = useScrollDirection(); //Codigo optimizado -NO BORRAR-
+  const { activeSubcategories, handleMouseEnter, handleMouseLeave } = useHoverWithDelay(400); //Codigo optimizado -NO BORRAR-
+  const images = [
+    'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg',
+    'https://burst.shopifycdn.com/photos/makeup-beauty-flatlay.jpg?width=1000&format=pjpg&exif=0&iptc=0',
+  ];  //Codigo optimizado -NO BORRAR-
 
-
-  // Agregar estado adicional para las imágenes del carrusel
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Índice de la imagen actual
-  const images = [ // Lista de URLs de imágenes
-  'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg',
-  'https://burst.shopifycdn.com/photos/makeup-beauty-flatlay.jpg?width=1000&format=pjpg&exif=0&iptc=0',
-  ];
-
-  // Detectar el desplazamiento del usuario
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = window.scrollY;
-
-  //     if (scrollTop > lastScrollTop) {
-  //       // Si el usuario se desplaza hacia abajo
-  //       setIsScrollingDown(true);
-  //     } else {
-  //       // Si el usuario se desplaza hacia arriba
-  //       setIsScrollingDown(false);
-  //     }
-
-  //     // Si el usuario ha desplazado la página más de 100px, indicamos que ha hecho scroll
-  //     if (scrollTop > 100) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       // Cuando el usuario llega a la parte superior, restauramos el tamaño inicial del top-bar
-  //       setIsScrolled(false);
-  //     }
-
-  //     setLastScrollTop(scrollTop);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   // Limpieza del evento cuando el componente se desmonte
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [lastScrollTop]);
-
-// Alternativa a todo lo comentado arriba
+  const { //Codigo optimizado -NO BORRAR-
+    currentImageIndex,  // Índice de la imagen actual
+    progress,
+    handleNextImage,  // Avanza a la siguiente imagen
+    handlePreviousImage,  // Retrocede a la imagen anterior
+    setImageIndex,
+  } = useCarousel(images); // Le pasamos `images` al hook
 
 
-  //     if (scrollTop > lastScrollTop) {
-  //       // Si el usuario se desplaza hacia abajo
-  //       setIsScrollingDown(true);
-  //     } else {
-  //       // Si el usuario se desplaza hacia arriba
-  //       setIsScrollingDown(false);
-  //     }
-
-  //     // Si el usuario ha desplazado la página más de 100px, indicamos que ha hecho scroll
-  //     if (scrollTop > 100) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       // Cuando el usuario llega a la parte superior, restauramos el tamaño inicial del top-bar
-  //       setIsScrolled(false);
-  //     }
-
-  //     setLastScrollTop(scrollTop);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   // Limpieza del evento cuando el componente se desmonte
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [lastScrollTop]);
-
-// Alternativa a todo lo comentado arriba
-
-useEffect(() => {
-  const handleScroll = () => {
-     const scrollTop = window.scrollY;
-
-     setIsScrollingDown(scrollTop > lastScrollTop);
-     setIsScrolled(scrollTop > 100);
-     setLastScrollTop(scrollTop);
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, [lastScrollTop]);
-
-
-  // Manejar hover con temporizador
-  const handleMouseEnter = (category) => {
-    clearTimeout(timeoutRef.current); // Cancelar cualquier temporizador previo
-    setActiveSubcategories(category); // Establecer la subcategoría activa
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setActiveSubcategories(null); // Restablecer subcategorías activas
-    }, 400); // Retraso de 400ms
-  };
-
-  // Actualiza el progreso visual del temporizador
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          setCurrentImageIndex((currentImageIndex + 1) % images.length); // Cambia la imagen
-          return 0; // Reinicia el progreso
-        }
-        return prevProgress + (100 / (duration / 100)); // Aumenta el progreso
-      });
-    }, 100);
-
-    return () => clearInterval(intervalRef.current); // Limpia el intervalo al desmontar el componente
-  }, [currentImageIndex, images.length]);
-      
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((currentImageIndex + 1) % images.length); // Avanza a la siguiente imagen
-  };
-
-  const handlePreviousImage = () => {
-    setCurrentImageIndex((currentImageIndex - 1 + images.length) % images.length); // Retrocede a la imagen anterior
-  };
 
   return (
     <div className="App">
@@ -318,8 +210,8 @@ useEffect(() => {
               key={index}
               className={`indicator ${currentImageIndex === index ? 'active' : ''}`}
               onClick={() => {
-                setCurrentImageIndex(index);
-                setProgress(0); // Reinicia el progreso al hacer clic
+                setImageIndex(index);
+                // Progress(0); // Reinicia el progreso al hacer clic
               }}
               >     
                     {/* SVG solo para el indicador activo */}

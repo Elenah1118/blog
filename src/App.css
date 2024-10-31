@@ -107,10 +107,12 @@ body {
   gap: 60px; /* Espaciado entre cada enlace */
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .nav-links li {
   display: inline;
+  text-align: center; /* Centra el texto dentro de cada enlace */
 }
 
 .nav-links a {
