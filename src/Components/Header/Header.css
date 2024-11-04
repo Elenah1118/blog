@@ -1,8 +1,9 @@
 /* Cabecera superior */
 .top-bar {
     width: 100%; /* Ocupa todo el ancho */
-    background-color: rgb(255, 255, 255); /* Fondo blanco */
-    padding: 40px 0; /* Espaciado vertical amplio en la parte superior */
+    height: auto;
+    background-color: rgb(137, 34, 34); /* Fondo blanco */
+    padding: 20px 0; /* Espaciado vertical amplio en la parte superior */
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
@@ -11,12 +12,12 @@
     left: 0;
     right: 0;
     z-index: 1000; /* Superposición alta para mantenerse visible */
-    transition: padding 0.45s ease, height 0.45s ease; /* Transición para reducir el tamaño al hacer scroll */
+    transition: padding 0.75s ease, height 5s ease; /* Transición para reducir el tamaño al hacer scroll */
   }
   
   /* Reducir el tamaño del top-bar cuando se hace scroll */
   .top-bar.scrolled {
-    padding: 20px 0; /* Disminuye el espaciado al hacer scroll */
+    padding: 5px 0; /* Disminuye el espaciado al hacer scroll */
   }
   
   .logo img {
@@ -26,7 +27,7 @@
   
   /* Reducir el tamaño del logo cuando se hace scroll */
   .top-bar.scrolled .logo img {
-    height: 50px; /* Tamaño del logo al hacer scroll */
+    height: 30px; /* Tamaño del logo al hacer scroll */
   }
   
   /* Botones de iniciar sesión y suscribirse */

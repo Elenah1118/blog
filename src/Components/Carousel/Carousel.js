@@ -5,8 +5,8 @@ import useCarousel from '../../hooks/useCarousel';
 const Carousel = ({ images }) => { 
   const { currentImageIndex, progress, handleNextImage, handlePreviousImage, setImageIndex } = useCarousel(images); 
   return ( 
-    <section id="contenido"> 
     <div className="carousel-container"> 
+        <section id="contenido"> 
       <div className="carousel-slide"> 
         <a href="#link1" target="_blank" rel="noopener noreferrer"> 
           <img src={images[currentImageIndex]} alt="Imagen de Carrusel" /> 
@@ -35,8 +35,9 @@ const Carousel = ({ images }) => {
           </div> 
         ))} 
       </div> 
+      </section> 
+
     </div>  
-  </section> 
   ); 
 }; 
 export default Carousel; 

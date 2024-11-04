@@ -2,7 +2,7 @@
 import React from 'react'; 
 import './MainContent.css'; 
 const MainContent = () => ( 
-  <section id="contenido"> 
+  <section id="introduction"> 
     <h1>Bienvenida a tu blog de maquillaje</h1> 
     <p>Este es el contenido inicial de tu blog. Continuaremos añadiendo más elementos y diseño.</p> 
   </section> 

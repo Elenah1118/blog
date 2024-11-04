@@ -1,30 +1,32 @@
 /* Barra de navegación principal */
 .navbar-wrapper {
   width: 100%;
-  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  height: 30px;
+  background-color: rgb(11, 208, 60); /* Fondo blanco */
   position: fixed; /* Fija la barra debajo del top-bar */
-  top: 100px; /* Espacio suficiente para el top-bar */
+  top: 80px; /* Espacio suficiente para el top-bar */
   z-index: 999; /* Colocar debajo del top-bar pero encima de otros elementos */
-  transition: transform 0.8s ease, opacity 0.8s ease; /* Suave transición */
+  transition: transform 0.5s , opacity 0.5s ease; /* Suave transición */
+  transition: top 0.3s linear, height 0.4s linear; /* Transición para reducir el tamaño al hacer scroll */
 }
 .navbar-wrapper.scroll-down {
-  top: 100px; /* Mantiene la posición debajo del top-bar */
+  z-index: 999; /* Colocar debajo del top-bar pero encima de otros elementos */
+  top: 123.5px; /* Mantiene la posición debajo del top-bar */
   transform: translateY(0); /* Barra completamente visible */
   opacity: 1;
 }
 .navbar-wrapper.scroll-up {
-  top: 100px;
+  top: 100%;
   transform: translateY(-100%); /* Oculta la barra */
   opacity: 0;
 }
 /* Ajustar la posición al hacer scroll */
 .navbar-wrapper.scrolled-navbar {
-  top: 58px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  top: 43.5px;
 }
 .navbar {
-  background-color: rgb(255, 255, 255); /* Fondo blanco */
-  padding: 10px 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.483); /* Fondo blanco */
 }
 .nav-links {
   list-style: none; /* Sin viñetas */

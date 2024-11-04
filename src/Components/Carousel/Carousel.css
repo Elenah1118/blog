@@ -2,7 +2,8 @@
 .carousel-container {
     position: relative;
     width: 95%; /* 80% del ancho de la página */
-    height: 45vh; /* 25% del alto de la página */
+    height: 60vh; /* 25% del alto de la página */
+    top: 100px;
     margin: auto; /* Centrado horizontal */
     background-color: rgb(218, 218, 218); /* Fondo blanco */
     overflow: hidden; /* Oculta el contenido fuera del contenedor */
@@ -84,3 +85,8 @@
   .progress-ring circle {
     transition: stroke-dashoffset 0.1s linear;
   }
+
+  /* Estilos para el "contenido" */ 
+#contenido { 
+  padding-top: 180px; 
+} 
