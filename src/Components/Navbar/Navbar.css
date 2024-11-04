@@ -1,0 +1,110 @@
+/* Barra de navegación principal */
+.navbar-wrapper {
+  width: 100%;
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  position: fixed; /* Fija la barra debajo del top-bar */
+  top: 100px; /* Espacio suficiente para el top-bar */
+  z-index: 999; /* Colocar debajo del top-bar pero encima de otros elementos */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Suave transición */
+}
+.navbar-wrapper.scroll-down {
+  top: 100px; /* Mantiene la posición debajo del top-bar */
+  transform: translateY(0); /* Barra completamente visible */
+  opacity: 1;
+}
+.navbar-wrapper.scroll-up {
+  top: 100px;
+  transform: translateY(-100%); /* Oculta la barra */
+  opacity: 0;
+}
+/* Ajustar la posición al hacer scroll */
+.navbar-wrapper.scrolled-navbar {
+  top: 58px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.navbar {
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  padding: 10px 0;
+}
+.nav-links {
+  list-style: none; /* Sin viñetas */
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  gap: 60px; /* Espacio entre enlaces */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.nav-links li {
+  display: inline;
+  text-align: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0); /* Texto negro */
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease; /* Suave transición de color */
+}
+.nav-links a:hover {
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+  text-underline-offset: 3px; /* Distancia entre texto y subrayado */
+  text-decoration-thickness: 1px; /* Grosor del subrayado */
+}
+/* Contenedor de las subcategorías */
+.subcategories {
+  display: none; /* Oculta las subcategorías inicialmente */
+  position: absolute;
+  top: 100%; /* Ubica justo debajo del nav-item */
+  left: 0;
+  width: 100%; /* Ancho completo de la pantalla */
+  background-color: white; /* Fondo blanco */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  padding: 30px; /* Espaciado interno */
+  opacity: 0;
+  transform: translateY(-20px); /* Posiciona ligeramente hacia arriba para efecto de transición */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 998;
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  
+}
+/* Mostrar subcategorías activas */
+.subcategories.active {
+  display: flex;
+  opacity: 1; /* Hacer visible */
+  transform: translateY(0); /* Sin desplazamiento */
+}
+
+/* Contenedor de los enlaces de subcategorías en columna */
+.subcategories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 20%; /* Ancho de cada columna de subcategorías */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre enlaces */
+}
+.subcategories li {
+  text-align: left; /* Alinear el texto a la izquierda */
+}
+.subcategories a {
+  display: block;
+  font-family: Arial, sans-serif; /* Tipografía similar */
+  color: #333; /* Color de texto gris oscuro */
+  font-size: 14px; /* Tamaño de fuente */
+  text-decoration: none; /* Eliminar subrayado */
+  padding: 0; /* Espaciado interno de los enlaces */
+  transition: color 0.3s ease;
+  margin-bottom: 15px; /* Espacio entre enlaces */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces */
+.subcategories a:hover {
+  color: #000; /* Cambia el color del texto a negro al pasar el ratón */
+  font-weight: bold; /* Negrita al pasar el ratón */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15); /* Sombra leve para efecto 3D */
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+  text-underline-offset: 2px; /* Ajusta la distancia entre el texto y el subrayado */
+}

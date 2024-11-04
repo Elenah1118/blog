@@ -1,0 +1,54 @@
+/* Contenedor de los enlaces de imagen a la derecha */
+.subcategory-links {
+    display: flex;
+    flex-direction: row; /* Alinea las imágenes en columna */
+    width: 50%; /* Ancho para las imágenes y sus descripciones */
+    gap: 70px; /* Espacio entre las imágenes */
+    justify-content: flex-start;
+  
+  }
+  
+  /* Cada enlace de imagen */
+  .link-item {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las imágenes */
+    text-align: left; /* Alineación del texto */
+    background-color: white;
+    text-decoration: none; /* Quita el subrayado en los enlaces */
+    color: black;
+    transition: transform 0.9s ease, box-shadow 0.9s ease;
+  }
+  
+  /* Imagen en cada enlace */
+  .link-item img {
+    width: 100%;
+    height: auto; /*se ajusta la altura sefún lo de dentro*/
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
+    
+  }
+  
+  /* Título de cada enlace de imagen */
+  .link-item h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: bold; /*exto aparezca más grueso o en negrita*/
+    
+  }
+  
+  /* Descripción debajo del título */
+  .link-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    
+  }
+  
+  /* Efecto hover para cada enlace de imagen */
+  .link-item:hover {
+    transform: scale(1.01); /* Agranda ligeramente el contenedor */
+  }
+  
+  .link-item:hover h3, .link-item:hover p {
+    color: #000; /* Cambia el color del texto en hover */
+  }

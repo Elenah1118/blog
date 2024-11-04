@@ -1,0 +1,14 @@
+/* Estilos para el "contenido" */ 
+#contenido { 
+    padding-top: 180px; 
+  } 
+  #contenido h1 { 
+    color: #333; 
+    margin-top: 20px; 
+  } 
+  #contenido p { 
+    color: #666; 
+    font-size: 16px; 
+    line-height: 1.6; 
+  } 
+  /* Fin del "Estilos para el contenido */ 
