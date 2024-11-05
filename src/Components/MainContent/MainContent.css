@@ -1,6 +1,7 @@
 /* Estilos para el "introduction" */ 
 #introduction { 
     padding-top: 20px; 
+    margin-top: 150px;
   } 
   #introduction h1 { 
     color: #333; 

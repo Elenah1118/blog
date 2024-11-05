@@ -7,16 +7,17 @@
   top: 80px; /* Espacio suficiente para el top-bar */
   z-index: 999; /* Colocar debajo del top-bar pero encima de otros elementos */
   transition: transform 0.5s , opacity 0.5s ease; /* Suave transición */
-  transition: top 0.3s linear, height 0.4s linear; /* Transición para reducir el tamaño al hacer scroll */
+  transition: top 0.3s ease, height 0.4s ease; /* Transición para reducir el tamaño al hacer scroll */
 }
 .navbar-wrapper.scroll-down {
   z-index: 999; /* Colocar debajo del top-bar pero encima de otros elementos */
   top: 123.5px; /* Mantiene la posición debajo del top-bar */
   transform: translateY(0); /* Barra completamente visible */
   opacity: 1;
+  transition:all 0.45s ease, height 0.45s ease; /* Transición para reducir el tamaño al hacer scroll */
+
 }
 .navbar-wrapper.scroll-up {
-  top: 100%;
   transform: translateY(-100%); /* Oculta la barra */
   opacity: 0;
 }
@@ -45,7 +46,7 @@
   text-decoration: none;
   color: rgb(0, 0, 0); /* Texto negro */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   transition: color 0.3s ease; /* Suave transición de color */
 }
 .nav-links a:hover {

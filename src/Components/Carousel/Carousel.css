@@ -1,10 +1,11 @@
 /* Contenedor del Carrusel */
 .carousel-container {
-    position: relative;
+    position:relative;
     width: 95%; /* 80% del ancho de la página */
     height: 60vh; /* 25% del alto de la página */
-    top: 100px;
+    top: 155px;
     margin: auto; /* Centrado horizontal */
+    margin-top: 20px;
     background-color: rgb(218, 218, 218); /* Fondo blanco */
     overflow: hidden; /* Oculta el contenido fuera del contenedor */
     display: flex;
@@ -15,9 +16,10 @@
   /* Estilo de cada slide */
   .carousel-slide img {
     width: 100%; /* Ocupa todo el ancho del contenedor */
-    height: 80%; /* Ocupa todo el alto del contenedor */
-    object-fit: cover;
+    height: 100%; /* Ocupa todo el alto del contenedor */
     transition: transform 0.5s ease; /* Transición suave */
+    display:block;
+    object-fit: cover;
   }
   
   /* Botones de navegación */
@@ -87,6 +89,6 @@
   }
 
   /* Estilos para el "contenido" */ 
-#contenido { 
-  padding-top: 180px; 
-} 
+  #contenido { 
+    padding-top: 180px;
+  } 
