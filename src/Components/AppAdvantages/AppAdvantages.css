@@ -1,0 +1,30 @@
+.app-advantages-container {
+  display: flex;
+  justify-content: space-between; /* Espacio uniforme entre elementos */
+  background-color: #f2f0e6; /* Color de fondo similar al de la imagen */
+  padding: 10px 20px; /* Espaciado interno para dar espacio entre los elementos y los bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  align-items: center; /* Centra verticalmente los elementos */
+  height: 40px;
+}
+
+.advantage {
+  display: flex;
+  align-items: center; /* Alinea el ícono y el texto verticalmente */
+  flex: 1; /* Permite que cada ventaja ocupe el mismo espacio */
+  margin: 0 10px; /* Espacio lateral entre ventajas */
+ justify-content: center; /* Centra el contenido dentro del div de la ventaja */
+
+}
+
+.advantage i {
+  font-size: 1.5em; /* Tamaño del ícono */
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  color: #333; /* Color del ícono */
+}
+
+.advantage h4 {
+  font-size: 1em; /* Tamaño del texto para que no sea demasiado grande */
+  margin: 0; /* Sin márgenes */
+  font-weight: normal; /* Peso normal para un aspecto más limpio */
+}

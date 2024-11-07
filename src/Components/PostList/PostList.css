@@ -1,62 +1,78 @@
-/* PostList.css */ 
+/* Estiliza el contenedor principal de las publicaciones */
 #posts { 
-    padding: 40px 5%; 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 40px; 
-    background-color: #f9f9f9; 
-    justify-content: center; 
-  } 
-  .post { 
-    background-color: #ffffff; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease; 
-    max-width: 500px; 
-    margin: 0 auto; 
-  } 
-  .post:hover { 
-    transform: translateY(-5px); 
-  } 
-  .post-image img { 
-    width: 100%; 
-    height: auto; 
-    display: block; 
-  } 
-  .post-content { 
-    padding: 20px; 
-    text-align: center; 
-  } 
-  .post-content h2 { 
-    font-size: 18px; 
-    color: #333; 
-    margin: 10px 0; 
-  } 
-  .post-content p { 
-    font-size: 14px; 
-    color: #666; 
-    margin-bottom: 10px; 
-  } 
-  .read-more { 
-    text-decoration: none; 
-    color: #000; 
-    font-weight: bold; 
-    position: relative; 
-  } 
-  .read-more::after { 
-    content: ''; 
-    display: block; 
-    width: 0; 
-    height: 2px; 
-    background: #000; 
-    transition: width 0.3s; 
-  } 
-  .read-more:hover::after { 
-    width: 100%; 
-  } 
-  /* Fondo transparente para que se herede el fondo blanco de content-section */ 
-  #posts { 
-    padding: 20px; 
-    background-color: transparent; /* Fondo transparente */ 
-  } 
+  padding: 40px 5%; /* Espaciado interno superior e inferior de 40px, lateral de 5% */
+  display: grid; /* Muestra los elementos como una cuadrícula */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  gap: 40px; /* Espacio entre las columnas y filas */
+  background-color: #f9f9f9; /* Color de fondo gris claro */
+  justify-content: center; /* Centra el contenido de la cuadrícula */
+  margin-bottom: 80px; /* Margen inferior de 80px */
+  background-color: transparent; /* Fondo transparente */
+
+}
+
+/* Estiliza cada publicación individual */
+.post { 
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta contenido que sobresalga del contenedor */
+  transition: transform 0.3s ease; /* Transición suave al hacer hover */
+  max-width: 500px; /* Ancho máximo de 500px */
+  margin: 0 auto; /* Centra el post horizontalmente */
+}
+
+/* Efecto de hover en cada publicación */
+.post:hover { 
+  transform: translateY(-1px); /* Mueve el elemento 5px hacia arriba */
+}
+
+/* Imagen dentro de la publicación */
+.post-image img { 
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: auto; /* Ajuste automático de altura */
+  display: block; /* Elimina el espacio en línea */
+}
+
+/* Contenido de texto de la publicación */
+.post-content { 
+  padding: 20px; /* Espaciado interno de 20px */
+  text-align: center; /* Centra el texto */
+}
+
+/* Estiliza el título dentro del contenido de la publicación */
+.post-content h2 { 
+  font-size: 18px; /* Tamaño de fuente de 18px */
+  color: #333; /* Color de texto gris oscuro */
+  margin: 10px 0; /* Margen superior e inferior de 10px */
+}
+
+/* Estiliza el párrafo de descripción dentro de la publicación */
+.post-content p { 
+  font-size: 14px; /* Tamaño de fuente de 14px */
+  color: #666; /* Color de texto gris medio */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
+/* Enlace de "Leer más" */
+.read-more { 
+  text-decoration: none; /* Elimina subrayado */
+  color: #000; /* Color negro */
+  font-weight: bold; /* Negrita */
+  position: relative; /* Posición relativa para el pseudo-elemento */
+}
+
+/* Pseudo-elemento para la línea de animación debajo del enlace */
+.read-more::after { 
+  content: ''; /* No muestra texto */
+  display: block; /* Se comporta como un bloque */
+  width: 0; /* Ancho inicial de 0 */
+  height: 2px; /* Altura de 2px */
+  background: #000; /* Color negro */
+  transition: width 0.3s; /* Transición suave de ancho */
+}
+
+/* Efecto de hover en el enlace de "Leer más" */
+.read-more:hover::after { 
+  width: 100%; /* Ancho completo al hacer hover */
+}
+

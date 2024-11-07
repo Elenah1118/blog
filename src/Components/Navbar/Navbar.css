@@ -29,6 +29,13 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.483); /* Fondo blanco */
 }
+
+/* Código para que no interfiera al hacer scrool up y que no salgan las subcategorias si no estas encima de ellas*/
+.nav-item {
+  padding: 0; /* Asegúrate de que no haya margen que extienda el área de hover */
+  margin: 0; /* Elimina el margen adicional */
+}
+
 .nav-links {
   list-style: none; /* Sin viñetas */
   display: flex;

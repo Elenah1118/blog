@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import useScrollDirection from '../../hooks/useScrollDirection';
-import logo from '/Users/ivan/Blogs/makeup_blog/blog/src/assets/images/Makeup.png';
+import logo from '../../assets/images/Makeup.png';
 
 
 const Header = () => {
