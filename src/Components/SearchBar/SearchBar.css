@@ -1,0 +1,37 @@
+/* Estilos generales para la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px; /* Padding ajustado */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    gap: 10px;
+  }
+  
+  /* Estilos para el input de texto */
+  .search-bar input[type="text"] {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent;
+    padding: 5px;
+    color: #333; /* Color de texto */
+  }
+  
+  /* Placeholder con color más visible */
+  .search-bar input[type="text"]::placeholder {
+    color: #999;
+  }
+  .brand-select {
+    border: 1px solid #ddd; /* Borde del select */
+    border-radius: 4px;
+    padding: 5px;
+    outline: none;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #333; /* Color de texto */
+  }

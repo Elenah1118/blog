@@ -17,6 +17,7 @@ const useScrollDirection = () => {
 useEffect(() => {
     const handleScroll = () => {
        const scrollTop = window.scrollY;
+       
   
        setIsScrollingDown(scrollTop > lastScrollTop);
        setIsScrolled(scrollTop > 100);
