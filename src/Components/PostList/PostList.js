@@ -2,7 +2,7 @@
 import React from 'react';
 import './PostList.css';
 
-const PostList = ({ searchTerm, selectedCategory }) => {
+const PostList = ({ searchTerm = '', selectedCategory = '' }) => {
   // Lista de publicaciones de ejemplo con categorías
   const posts = [
     { id: 1, title: 'Post Title 1', category: 'ojos', image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg', description: 'Discover the latest beauty secrets and expert tips to elevate your style.' },
@@ -11,9 +11,9 @@ const PostList = ({ searchTerm, selectedCategory }) => {
     // Puedes agregar más publicaciones según tu necesidad
   ];
 
-  // Filtra las publicaciones según el término de búsqueda y la categoría seleccionada
+  // Filtra las publicaciones de forma segura
   const filteredPosts = posts.filter((post) =>
-    (post.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
+    (!searchTerm || post.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
     (selectedCategory ? post.category === selectedCategory : true)
   );
 

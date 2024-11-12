@@ -1,8 +1,11 @@
 // src/Components/SearchBar/SearchBar.js
 import React from 'react';
 import './SearchBar.css';
+import useSearchFilter from '../../hooks/useSearchFilter'; // Importa el hook
 
-const SearchBar = ({ searchTerm, setSearchTerm, selectedBrand, setSelectedBrand }) => {
+const SearchBar = () => {
+  const { searchTerm, setSearchTerm, selectedBrand, setSelectedBrand } = useSearchFilter();
+
   return (
     <div className="search-bar">
       <input

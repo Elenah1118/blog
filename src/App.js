@@ -8,7 +8,6 @@ import MainContent from './Components/MainContent/MainContent';
 import PostList from './Components/PostList/PostList';
 import AppAdvantages from './Components/AppAdvantages/AppAdvantages';
 import Footer from './Components/Footer/Footer';
-import useSearchFilter from './hooks/useSearchFilter';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ChatIcon from './Components/ChatIcon/ChatIcon'; // Importa el componente ChatIcon
 
@@ -19,24 +18,17 @@ import carouselImage2 from './assets/images/Maquillaje.png';
 
 function App() {
 
-  // Usa el hook para manejar el filtrado de publicaciones
-  const { searchTerm, setSearchTerm, selectedCategory, setSelectedCategory } = useSearchFilter();
   const images = [ carouselImage, carouselImage2];
 
   return (
     <div className="App">
       {/* Cabecera superior con logo y botones */}
-      <Header
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
+      <Header />
       <Navbar/>
       <Carousel images={images}/>
        <MainContent />
-      <PostList searchTerm={searchTerm} selectedCategory={selectedCategory} />
-      <AppAdvantages/>
+       <PostList />
+       <AppAdvantages/>
       <ChatIcon /> {/* Renderiza el ícono del chat */}
       <Footer />
     </div>

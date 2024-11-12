@@ -2,17 +2,17 @@
 import { useState } from 'react';
 
 const useSearchFilter = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(''); // Asegura que tenga un valor por defecto
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedBrand, setSelectedBrand] = useState(''); // Nuevo estado para la marca
+  const [selectedBrand, setSelectedBrand] = useState(''); // Estado para la marca
 
   return {
-    searchTerm,
+    searchTerm: searchTerm || '', // Asegura que siempre tenga un string
     setSearchTerm,
-    selectedCategory,
+    selectedCategory: selectedCategory || '', // Asegura que siempre tenga un string
     setSelectedCategory,
-    selectedBrand, // Incluye el estado de la marca en el retorno
-    setSelectedBrand, // Devuelve la función para actualizar la marca
+    selectedBrand: selectedBrand || '', // Asegura que siempre tenga un string
+    setSelectedBrand,
   };
 };
 

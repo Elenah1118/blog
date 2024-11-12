@@ -2,7 +2,7 @@
 .top-bar {
   width: 100%; /* Ocupa todo el ancho */
   height: auto;
-  background-color: rgb(137, 34, 34); /* Fondo blanco */
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
   padding: 20px 0; /* Espaciado vertical amplio en la parte superior */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
