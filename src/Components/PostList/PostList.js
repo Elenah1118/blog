@@ -1,40 +1,45 @@
 // src/Components/PostList/PostList.js
-import React from 'react';
+import React, { useState } from 'react';
 import './PostList.css';
 
-const PostList = ({ searchTerm = '', selectedCategory = '' }) => {
-  // Lista de publicaciones de ejemplo con categorías
+const PostList = ({ addToWishlist, showHeartIcons = false }) => {
   const posts = [
     { id: 1, title: 'Post Title 1', category: 'ojos', image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg', description: 'Discover the latest beauty secrets and expert tips to elevate your style.' },
     { id: 2, title: 'Post Title 2', category: 'labios', image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg', description: 'Discover the latest beauty secrets and expert tips to elevate your style.' },
     { id: 3, title: 'Post Title 3', category: 'rostro', image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/MAQUILLAJE.jpg', description: 'Discover the latest beauty secrets and expert tips to elevate your style.' },
-    // Puedes agregar más publicaciones según tu necesidad
   ];
 
-  // Filtra las publicaciones de forma segura
-  const filteredPosts = posts.filter((post) =>
-    (!searchTerm || post.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
-    (selectedCategory ? post.category === selectedCategory : true)
-  );
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (post) => {
+    if (favorites.some(fav => fav.id === post.id)) {
+      setFavorites(favorites.filter(fav => fav.id !== post.id));
+    } else {
+      setFavorites([...favorites, post]);
+      if (addToWishlist) {
+        addToWishlist(post);
+      }
+    }
+  };
 
   return (
     <section id="posts">
-      {filteredPosts.length > 0 ? (
-        filteredPosts.map((post, index) => (
-          <div className="post" key={post.id || index}>
-            <div className="post-image">
-              <img src={post.image} alt={post.title} />
-            </div>
-            <div className="post-content">
-              <h2>{post.title}</h2>
-              <p>{post.description}</p>
-              <a href="#leer-mas" className="read-more">Read More</a>
-            </div>
+      {posts.map((post) => (
+        <div key={post.id} className="post">
+          <div className="post-image">
+            <img src={post.image} alt={post.title} />
           </div>
-        ))
-      ) : (
-        <p>No se encontraron resultados para tu búsqueda.</p>
-      )}
+          <div className="post-content">
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+            {showHeartIcons && (
+              <div className="heart-icon" onClick={() => toggleFavorite(post)}>
+                <i className={`fa-heart ${favorites.some(fav => fav.id === post.id) ? 'fas' : 'far'}`}></i>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
     </section>
   );
 };

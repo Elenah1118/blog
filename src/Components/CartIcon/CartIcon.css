@@ -1,0 +1,13 @@
+.cart-icon {
+  position: fixed; /* Hace que el icono se mantenga visible mientras haces scroll */
+  top: 10px; /* Ajusta la distancia desde la parte superior */
+  right: 70px; /* Ajusta la distancia desde la parte derecha (ajústalo para que quede al lado del perfil) */
+  font-size: 24px; /* Tamaño del icono */
+  color: black; /* Color del icono */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar el mouse */
+  z-index: 1002; /* Asegúrate de que esté sobre otros elementos */
+}
+
+.cart-icon:hover {
+  color: #ff4081; /* Cambia de color al pasar el cursor */
+}

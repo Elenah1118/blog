@@ -1,25 +1,23 @@
 /* Estiliza el contenedor principal de las publicaciones */
-#posts { 
-  padding: 40px 5%; /* Espaciado interno superior e inferior de 40px, lateral de 5% */
-  display: grid; /* Muestra los elementos como una cuadrícula */
+#posts {
+  display: grid;
   grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
   gap: 40px; /* Espacio entre las columnas y filas */
-  background-color: #f9f9f9; /* Color de fondo gris claro */
-  justify-content: center; /* Centra el contenido de la cuadrícula */
-  margin-bottom: 80px; /* Margen inferior de 80px */
+  padding: 40px 5%; /* Espaciado interno */
+  margin-bottom: 80px; /* Margen inferior */
   background-color: transparent; /* Fondo transparente */
-
+  max-width: 70%; /* Limita el ancho al 70% de la página */
 }
 
-/* Estiliza cada publicación individual */
-.post { 
+.post {
   background-color: #ffffff; /* Fondo blanco */
   border-radius: 5px; /* Bordes redondeados */
-  overflow: hidden; /* Oculta contenido que sobresalga del contenedor */
-  transition: transform 0.3s ease; /* Transición suave al hacer hover */
-  max-width: 500px; /* Ancho máximo de 500px */
-  margin: 0 auto; /* Centra el post horizontalmente */
+  overflow: hidden; /* Oculta contenido que sobresalga */
+  transition: transform 0.3s ease; /* Transición de hover */
+  max-width: 100%; /* Ajusta el ancho al contenedor */
+  margin: 0 auto; /* Centra cada post */
 }
+
 
 /* Efecto de hover en cada publicación */
 .post:hover { 
@@ -59,20 +57,43 @@
   color: #000; /* Color negro */
   font-weight: bold; /* Negrita */
   position: relative; /* Posición relativa para el pseudo-elemento */
+  display: inline-block; /* Para que solo el texto esté subrayado */
+
 }
 
 /* Pseudo-elemento para la línea de animación debajo del enlace */
-.read-more::after { 
-  content: ''; /* No muestra texto */
-  display: block; /* Se comporta como un bloque */
-  width: 0; /* Ancho inicial de 0 */
-  height: 2px; /* Altura de 2px */
-  background: #000; /* Color negro */
-  transition: width 0.3s; /* Transición suave de ancho */
+/* Quita el subrayado por defecto y lo muestra solo al hacer hover */
+.read-more:hover {
+  text-decoration: underline; /* Solo muestra subrayado en el texto */
 }
 
-/* Efecto de hover en el enlace de "Leer más" */
-.read-more:hover::after { 
-  width: 100%; /* Ancho completo al hacer hover */
+/* Pseudo-elemento para la línea de animación debajo del enlace */
+.read-more::after {
+  display: none; /* Elimina la barra animada debajo del enlace */
+}
+
+/*Para el icono de WishList*/
+.heart-icon {
+  position:relative; /* Hace que el corazón este debajo de los comentarios */
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: black; /* Color del ícono */
+  cursor: pointer;
+  border: none; /* Elimina el borde de depuración */
+  background-color: transparent; /* Fondo transparente */
+  visibility: visible; /* Asegura que siempre sea visible */
+  opacity: 1; /* Opacidad total */
+  transition: color 0.3s ease; /* Transición para cambiar de color */
+}
+
+/* Evita que el ícono se vea solo al pasar el ratón */
+.heart-icon:hover {
+  color: red; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilo de cuando está marcado como favorito */
+.heart-icon.liked i {
+  color: red; /* Color rojo cuando está marcado */
 }
 

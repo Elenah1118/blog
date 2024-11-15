@@ -1,0 +1,4 @@
+.fa-heart::before {
+    content: '❤️'; /* Ejemplo de contenido que puede estar generando el icono inesperado */
+  }
+  

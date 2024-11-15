@@ -1,15 +1,19 @@
-/* Estilos para el "introduction" */ 
-#introduction { 
-    padding-top: 20px; 
-    margin-top: 150px;
-  } 
-  #introduction h1 { 
-    color: #333; 
-    margin-top: 20px; 
-  } 
-  #introduction p { 
-    color: #666; 
-    font-size: 16px; 
-    line-height: 1.6; 
-  } 
-  /* Fin del "Estilos para el introduction */ 
+/* Estilos para el "introduction" */
+#introduction {
+  padding-top: 20px;
+  margin-top: 150px;
+  text-align: center; /* Centra el contenido de texto */
+}
+
+/* Estilo para el título */
+#introduction h1 {
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Estilo para el párrafo */
+#introduction p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}

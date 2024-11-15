@@ -1,6 +1,7 @@
 // Footer.js
 import React from 'react';
 import './Footer.css';
+import logo from '../../assets/images/Makeup.png';
 
 function Footer() {
     return (
@@ -11,7 +12,7 @@ function Footer() {
                 {/* Sección izquierda del footer: logo, descripción, redes sociales */}
                 <div className="footer-left">
                     {/* Logo de la empresa */}
-                    <img src="logo.png" alt="Logo" className="footer-logo" />
+                    <img src={logo} alt="Logo" className="footer-logo" />
                     
                     {/* Descripción breve del blog */}
                     <p className="footer-description">

@@ -1,37 +1,37 @@
-
+// src/App.js
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header/Header';
-import Navbar from './Components/Navbar/Navbar';
-import Carousel from './Components/Carousel/Carousel';
-import MainContent from './Components/MainContent/MainContent';
-import PostList from './Components/PostList/PostList';
-import AppAdvantages from './Components/AppAdvantages/AppAdvantages';
-import Footer from './Components/Footer/Footer';
+import HomePage from './pages/HomePage';
+import HomeLoggedInPage from './pages/HomeLoggedInPage';
+import ProfilePage from './pages/ProfilePage';
+import WishlistPage from './pages/WishlistPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import ChatIcon from './Components/ChatIcon/ChatIcon'; // Importa el componente ChatIcon
+import useWishlist from './hooks/useWishlist';
 
-
-//IMPORTACIÓN DE IMÁGENES
+// Importación de imágenes para el carrusel
 import carouselImage from './assets/images/BlogUp.jpg';
 import carouselImage2 from './assets/images/Maquillaje.png';
 
 function App() {
-
-  const images = [ carouselImage, carouselImage2];
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const images = [carouselImage, carouselImage2];
 
   return (
-    <div className="App">
-      {/* Cabecera superior con logo y botones */}
-      <Header />
-      <Navbar/>
-      <Carousel images={images}/>
-       <MainContent />
-       <PostList />
-       <AppAdvantages/>
-      <ChatIcon /> {/* Renderiza el ícono del chat */}
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage images={images} />} />
+        <Route
+          path="/home-logged-in"
+          element={<HomeLoggedInPage images={images} addToWishlist={addToWishlist} />}
+        />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/wishlist"
+          element={<WishlistPage wishlistItems={wishlistItems} removeFromWishlist={removeFromWishlist} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
