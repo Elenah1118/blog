@@ -1,0 +1,80 @@
+/* General styles for the blog page */
+.blog-main-content {
+    padding: 180px 40px; /* Margen superior e inferior */
+  }
+  
+  /* Espacio entre secciones para separarlas claramente */
+  .section-container {
+    margin-bottom: 100px;
+    
+  }
+  
+  /* Títulos de las secciones */
+  .section-title {
+    display:grid;
+    font-size: 32px; /* Tamaño más grande */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left; /* Alinea el título a la izquierda */
+
+  }
+  
+  
+  /* Contenedor de los elementos en 3 columnas */
+  .items-container {
+    width: 100%; /* Asegúrate de que no haya un ancho excesivo */
+    max-width: 1200px; /* Ajusta según sea necesario */
+    display: grid;
+    margin: 0 auto; /* Centra el contenedor */
+
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 1px !important; /* Asegúrate de que se aplique el nuevo espacio */
+  }
+  
+  /* Diseño de las tarjetas de marca */
+  .item-card {
+    background-color: white;
+    border: none; /* Sin bordes ni sombras */
+    padding: 15px;
+    margin: 0 auto; /* Centra las tarjetas */
+  }
+  
+  /* Imágenes en las tarjetas */
+  .item-image {
+    width: 100%;
+    height: 320px; /* Ajuste de altura para mayor impacto visual */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    margin-bottom: 15px;
+    margin: 0; /* Asegúrate de que las imágenes no tengan márgenes */
+
+  }
+  
+  /* Nombre de la marca en la tarjeta */
+  .item-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  /* Fecha de creación de la tarjeta */
+  .item-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  /* Enlace "Ver más" */
+  .ver-mas-link {
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+    text-align: left; /* Alinea el texto a la izquierda */
+    display: block; /* Asegura que el enlace esté alineado a la izquierda */
+  }
+  
+  .ver-mas-link:hover {
+    text-decoration: underline;
+  }
+  

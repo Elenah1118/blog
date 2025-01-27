@@ -1,3 +1,5 @@
+//Chat con el robot de ayuda
+
 // src/Components/ChatIcon/ChatIcon.js
 import React from 'react';
 import './ChatIcon.css';

@@ -1,0 +1,49 @@
+/* ✅ Estructura principal de la página de registro */
+.layout-main-page {
+    margin-top: calc(var(--header-height) + var(--navbar-height)); /* Suma alturas de Header y Navbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que la página ocupe al menos toda la altura visible */
+    background-color: #ffffff;
+  }
+
+
+  
+  /* ✅ Contenido principal de la página */
+  .layout-main-content {
+    flex: 1; /* Ocupa el espacio restante entre Header y Footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    padding: 20px;
+    gap: 30px; /* Espacio entre los elementos */
+  }
+  
+  /* ✅ Título principal */
+  .layout-main-content h1 { 
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* ✅ Ajustes para AppAdvantages */
+  .layout-main-content .app-advantages { 
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  /* ✅ Ajustes para el icono de chat */
+  .layout-chat-icon { 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  /* ✅ Ajustes para Footer */
+  .layout-footer {
+    margin-top: auto; /* Se coloca siempre al final del contenedor padre */
+    text-align: center;
+  }
+  

@@ -1,3 +1,5 @@
+//Perfil ya logado en el Header
+
 // src/Components/Profile/Profile.js
 import React, { useState } from 'react';
 import './Profile.css';

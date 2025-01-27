@@ -1,113 +1,115 @@
 /* Contenedor del Carrusel */
-.carousel-container {
-    position:relative;
-    width: 95%; /* 80% del ancho de la página */
-    height: 60vh; /* 25% del alto de la página */
-    top: 155px;
-    margin: auto; /* Centrado horizontal */
-    margin-top: 20px;
-    background-color: rgb(218, 218, 218); /* Fondo blanco */
-    overflow: hidden; /* Oculta el contenido fuera del contenedor */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
-    justify-content: center; /* Asegura que el contenido esté centrado horizontalmente */
-    box-sizing: border-box;
-  }
-  
-  .carousel-slide {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    overflow: hidden;
-  }
-  
-  
-  /* Estilo de cada slide */
-  .carousel-slide img {
-    width: auto;
-    height: 100%; /* La imagen se ajustará a la altura del contenedor */
-    max-width: 100%; /* Evita que la imagen se extienda más allá del contenedor */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin cortar */
-    display: block;
-    margin: auto;
-    box-sizing: border-box;
-    
+#contenido.carousel-container {
+  position:relative;
+  width: 100%; /* 95% del ancho de la página */
+  height: 80vh; /* 60% del alto de la página */
+  top: 133px;
+  margin: auto; /* Centrado horizontal */
+  margin-top: 20px;
+  background-color: rgb(218, 218, 218); /* Fondo gris claro */
+  overflow: hidden; /* Oculta el contenido fuera del contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
+/* Padding adicional si es necesario 
+#contenido {
+  padding-top: 180px;
+}*/
 
+/* Slide del carrusel */
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  overflow: hidden;
+}
 
-  
-  /* Botones de navegación */
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent; /* Fondo transparente para no destacar */
-    border: none; /* Sin borde */
-    color: rgba(16, 16, 16, 0.491); /* Color blanco para el icono o flecha */
-    font-size: 2rem; /* Tamaño adecuado del icono */
-    cursor: pointer;
-    z-index: 10; /* Asegura que esté encima de la imagen */
-    padding: 5px; /* Espaciado pequeño */
-    transition: transform 0.3s ease; /* Suave transición para el efecto de desplazamiento */
-  }
-  
-  .carousel-button.left {
-    left: 10px;
-  }
-  .carousel-button.left:hover {
-    transform: translate(-8px, -50%); /* Efecto de desplazamiento hacia la izquierda */
-  }
-  .carousel-button.right {
-    right: 10px;
-  }
-  .carousel-button.right:hover {
-    transform: translate(8px, -50%); /* Efecto de desplazamiento hacia la derecha */
-  }
-  
-  
-  
-  /* Asegúrate de que estas reglas estén en tu App.css */
-  
-  .carousel-indicators {
-    position: absolute; /* Permite posicionar los indicadores respecto al contenedor */
-    bottom: 10px; /* Ajusta la distancia desde la parte inferior */
-    left: 50%; /* Centra los indicadores horizontalmente */
-    transform: translateX(-50%); /* Compensa el margen del 50% */
-    display: flex; /* Muestra los indicadores en línea */
-    justify-content: center; /* Centra los indicadores */
-  }
-  
-  .indicator {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255); /* Color de fondo del indicador */
-    margin: 0 5px;
-    transition: transform 0.3s ease; /* Transición suave */
-  }
-  
-  .indicator.active {
-    transform: scale(1.5); /* Agranda el indicador activo */
-  }
-  
-  /* Estilos para el círculo SVG */
-  .progress-ring {
-    position: absolute;
-    top: -2.5px; /* Ajusta para centrar el círculo */
-    left: -2.5px; /* Ajusta para centrar el círculo */
-  }
-  
-  .progress-ring circle {
-    transition: stroke-dashoffset 0.1s linear;
-  }
+/* Ajustar el enlace (<a>) dentro del carrusel */
+.carousel-slide a {
+  display: block; /* Hace que el enlace ocupe todo el espacio disponible */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 100%; /* Ocupa toda la altura del contenedor */
+  overflow: hidden; /* Evita que la imagen se salga */
+}
 
-  /* Estilos para el "contenido" */ 
-  #contenido { 
-    padding-top: 180px;
-  } 
+/* Imagen del carrusel */
+.carousel-slide img {
+  width: 100%;
+  height: 100%; /* Ajusta a la altura del contenedor */
+  max-width: 100%;
+  object-fit:unset;
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* Botones de navegación */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: rgba(16, 16, 16, 0.491);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.left:hover {
+  transform: translate(-8px, -50%);
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+.carousel-button.right:hover {
+  transform: translate(8px, -50%);
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.indicator {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(13, 125, 244, 0.4); /* Más transparente */
+  margin: 0 5px;
+  transition: transform 0.3s ease;
+}
+
+.indicator.active {
+  transform: scale(1.5);
+}
+
+/* Progreso del indicador activo */
+.progress-ring {
+  position: absolute;
+  top: -2.5px;
+  left: -2.5px;
+}
+
+.progress-ring circle {
+  transition: stroke-dashoffset 0.1s linear;
+}

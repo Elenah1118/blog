@@ -1,7 +1,9 @@
-// Footer.js
+// src/Components/Footer/Footer.js
+
 import React from 'react';
 import './Footer.css';
 import logo from '../../assets/images/Makeup.png';
+import { Link } from 'react-router-dom'; // Para navegación interna
 
 function Footer() {
     return (
@@ -10,7 +12,7 @@ function Footer() {
             <div className="footer-content">
                 
                 {/* Sección izquierda del footer: logo, descripción, redes sociales */}
-                <div className="footer-left">
+                <section className="footer-left">
                     {/* Logo de la empresa */}
                     <img src={logo} alt="Logo" className="footer-logo" />
                     
@@ -20,31 +22,31 @@ function Footer() {
                     </p>
                     
                     {/* Íconos de redes sociales */}
-                    <div className="social-icons">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <nav className="social-icons" aria-label="Redes Sociales">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i className="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                             <i className="fab fa-twitter"></i>
                         </a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                             <i className="fab fa-youtube"></i>
                         </a>
-                    </div>
-                </div>
+                    </nav>
+                </section>
 
                 {/* Sección derecha del footer: enlaces adicionales */}
-                <div className="footer-right">
-                    <div className="footer-links">
-                        <a href="#home">Inicio</a>
-                        <a href="#about">Sobre nosotros</a>
-                        <a href="#contact">Contacto</a>
-                        <a href="#legal">Aviso legal</a>
-                    </div>
-                </div>
+                <section className="footer-right">
+                    <nav className="footer-links" aria-label="Enlaces del Footer">
+                        <Link to="/">Inicio</Link>
+                        <Link to="/about">Sobre nosotros</Link>
+                        <Link to="/contact">Contacto</Link>
+                        <Link to="/legal">Aviso legal</Link>
+                    </nav>
+                </section>
             </div>
 
             {/* Texto del copyright debajo de todo */}
@@ -56,4 +58,3 @@ function Footer() {
 }
 
 export default Footer;
-

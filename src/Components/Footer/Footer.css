@@ -1,98 +1,116 @@
-/* Estilo principal para el footer */
+/* ✅ Estilo principal para el footer */
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 5px; /* 20px arriba y abajo, 40px a los lados */
-    text-align: left;
-    min-height: 250px; /* Altura mínima para el footer */
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 5px; /* Espaciado vertical y horizontal */
+    text-align: left; /* Texto alineado a la izquierda */
+    min-height: 250px; /* Altura mínima */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: center; /* Centra contenido verticalmente */
+    align-items: center; /* Centra contenido horizontalmente */
+    width: 100%; /* Usa el 100% del ancho disponible */
+    box-sizing: border-box; /* Evita desbordamiento por padding */
 }
 
-/* Contenedor del contenido del footer */
+/* ✅ Contenedor del contenido principal del footer */
 .footer-content {
     width: 100%;
-    max-width: 1200px; /* Ancho máximo para el contenido */
-    padding: 20px 60px; /* 20px arriba y abajo, 60px a los lados para margen interno adicional */
+    max-width: 1200px; /* Ancho máximo para mantener consistencia */
+    padding: 20px 60px; /* Espaciado interno */
     display: flex;
-    justify-content: space-between;
-    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    align-items: flex-start; /* Alinea contenido al inicio */
+    gap: 20px; /* Espacio entre secciones */
+    flex-wrap: wrap; /* Permite ajustar en dispositivos pequeños */
 }
 
-/* Estilo para la sección de copyright al final del footer */
-.footer-bottom {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 10px; /* Pequeño espacio para separar del contenido principal */
-    color: #fff;
+/* ✅ Sección izquierda del footer */
+.footer-left {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 250px; /* Ancho mínimo para evitar colapsos */
 }
 
-
-
-/* Estilo para el logo dentro del footer */
+/* ✅ Logo en el footer */
 .footer-logo {
     margin-bottom: 10px; /* Espacio debajo del logo */
     max-width: 150px; /* Tamaño máximo del logo */
 }
 
-/* Estilo para la sección izquierda del footer */
-.footer-left {
-    flex: 0 0 44%; /* Ocupa exactamente un tercio del ancho del footer */
+/* ✅ Descripción en el footer */
+.footer-description {
+    margin: 0 0 20px; /* Margen inferior */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: left; /* Alineación del texto */
 }
 
-/* Estilo para la sección derecha del footer */
+/* ✅ Iconos de redes sociales */
+.social-icons {
+    display: flex;
+    gap: 10px; /* Espacio entre iconos */
+    margin-top: 10px; /* Espacio superior */
+}
+
+.social-icon {
+    color: #90878a; /* Color inicial */
+    font-size: 20px; /* Tamaño del icono */
+    transition: color 0.3s ease; /* Transición de color */
+}
+
+.social-icon:hover {
+    color: #fff; /* Color al pasar el ratón */
+}
+
+/* ✅ Sección derecha del footer */
 .footer-right {
-    flex: 0 0 33%; /* Ocupa un tercio del ancho del footer */
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 250px; /* Ancho mínimo */
     text-align: right; /* Alinea el contenido a la derecha */
 }
 
-/* Estilo para la descripción debajo del logo */
-.footer-description {
-    margin: 0; /* Sin margen adicional */
-    margin-bottom: 20px; /* Espacio inferior para separación */
-    font-size: 14px; /* Tamaño de fuente */
-    max-width: 100%; /* Asegura que no supere el ancho de la sección */
-    text-align: left; /* Alineación del texto a la izquierda */
-}
-
-/* Contenedor para los iconos de redes sociales */
-.social-icons {
-    display: flex; /* Flexbox para colocar los iconos en línea */
-    gap: 10px; /* Espacio entre cada icono */
-    margin-top: 10px; /* Espacio superior para separar del texto anterior */
-}
-
-/* Estilo de los iconos individuales de redes sociales */
-.social-icon {
-    color: #90878a; /* Color inicial de los iconos */
-    font-size: 20px; /* Tamaño de fuente de los iconos */
-    transition: color 0.3s ease; /* Transición suave para el cambio de color */
-}
-
-/* Color de los iconos al pasar el ratón */
-.social-icon:hover {
-    color: #fff; /* Cambia el color a blanco al hacer hover */
-}
-
-/* Contenedor de los enlaces adicionales en el footer */
+/* ✅ Enlaces adicionales en el footer */
 .footer-links {
-    display: flex; /* Flexbox para organizarlos */
-    flex-direction: column; /* Coloca los enlaces en columna */
-    gap: 10px; /* Espacio entre cada enlace */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre enlaces */
 }
 
-/* Estilos para los enlaces de la sección de enlaces del footer */
 .footer-links a {
-    color: #b5b0b2; /* Color inicial de los enlaces */
-    text-decoration: none; /* Elimina subrayado */
-    font-size: 14px; /* Tamaño de fuente de los enlaces */
+    color: #b5b0b2; /* Color inicial */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 14px; /* Tamaño de fuente */
+    transition: color 0.3s ease; /* Transición de color */
 }
 
-/* Color de los enlaces al pasar el ratón */
 .footer-links a:hover {
-    color: #ffffff; /* Cambia el color a blanco al hacer hover */
+    color: #fff; /* Color al pasar el ratón */
 }
 
+/* ✅ Sección inferior del footer (Copyright) */
+.footer-bottom {
+    text-align: center; /* Centra el texto */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-top: 10px; /* Espacio superior */
+    padding-top: 10px; /* Espacio interno superior */
+    border-top: 1px solid #444; /* Borde superior */
+    color: #fff; /* Color de texto */
+    width: 100%;
+    box-sizing: border-box; /* Evita desbordamiento */
+}
 
+/* ✅ Diseño Responsivo */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Apila las secciones verticalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .footer-left,
+    .footer-right {
+        text-align: center; /* Centra contenido */
+    }
+
+    .footer-right {
+        margin-top: 20px; /* Espacio adicional */
+    }
+}

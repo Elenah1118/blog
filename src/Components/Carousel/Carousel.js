@@ -1,12 +1,14 @@
 // src/Components/Carousel/Carousel.js 
+// src/Components/Carousel/Carousel.js 
 import React from 'react'; 
 import './Carousel.css'; 
 import useCarousel from '../../hooks/useCarousel'; 
+
 const Carousel = ({ images }) => { 
   const { currentImageIndex, progress, handleNextImage, handlePreviousImage, setImageIndex } = useCarousel(images); 
+
   return ( 
-    <div className="carousel-container"> 
-        <section id="contenido"> 
+    <section id="contenido" className="carousel-container"> 
       <div className="carousel-slide"> 
         <a href="#link1" target="_blank" rel="noopener noreferrer"> 
           <img src={images[currentImageIndex]} alt="Imagen de Carrusel" /> 
@@ -25,7 +27,7 @@ const Carousel = ({ images }) => {
               <svg className="progress-ring" width="24" height="24"> 
                 <circle 
                   cx="7.5" cy="7.5" r="6.3" fill="none" 
-                  stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1.25" 
+                  stroke="rgba(13, 125, 244, 0.4)" strokeWidth="1.25" 
                   strokeDasharray={1.5 * Math.PI * 9} 
                   strokeDashoffset={1.5 * Math.PI * 9 * (1 - progress / 100)} 
                   transform="rotate(-90 7.5 7.5)" 
@@ -35,9 +37,8 @@ const Carousel = ({ images }) => {
           </div> 
         ))} 
       </div> 
-      </section> 
-
-    </div>  
+    </section>  
   ); 
 }; 
-export default Carousel; 
+
+export default Carousel;

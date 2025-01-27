@@ -5,6 +5,7 @@ import './Header.css';
 import useScrollDirection from '../../hooks/useScrollDirection'; // Importa el hook de scroll
 import logo from '../../assets/images/Makeup.png';
 import UserMenu from '../UserMenu/UserMenu';
+import SearchBar from '../SearchBar/SearchBar'; // Importa el componente de búsqueda
 
 const Header = ({ isLoggedIn }) => {
   const location = useLocation();
@@ -16,8 +17,15 @@ const Header = ({ isLoggedIn }) => {
   return (
     <header className={`top-bar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
-        <div className="logo">
-          <img src={logo} alt="Logo de tu blog" />
+        <div className="header-content">
+          <div className="search-bar-container">
+            <SearchBar />
+          </div>
+        </div>
+      <div className="logo">
+          <Link to={isLoggedIn ? '/home-logged-in' : '/'}>
+            <img src={logo} alt="Logo de tu blog" />
+          </Link>
         </div>
 
         {isLoggedIn && isHomeLoggedInPage && (
@@ -35,7 +43,9 @@ const Header = ({ isLoggedIn }) => {
         {!isLoggedIn && (
           <div className="top-actions">
             <button className="login-button">Iniciar Sesión</button>
-            <button className="subscribe-button">Suscribirse</button>
+            <Link to="/register">
+                <button className="subscribe-button">Subscribirse</button>
+            </Link>
           </div>
         )}
       </div>

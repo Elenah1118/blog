@@ -1,3 +1,5 @@
+//Entrada de nuestra pagina (BIENVENIDOS A TU BLOG)
+
 // src/Components/MainContent/MainContent.js 
 import React from 'react'; 
 import './MainContent.css'; 

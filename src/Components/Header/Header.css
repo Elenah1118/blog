@@ -1,8 +1,8 @@
 /* Cabecera superior */
 .top-bar {
   width: 100%; /* Ocupa todo el ancho */
-  height: auto;
-  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  height: 80px; /* Altura fija para el Header */
+  background-color: rgb(217, 122, 122); /* Fondo blanco */
   padding: 20px 0; /* Espaciado vertical amplio en la parte superior */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
@@ -17,6 +17,7 @@
 
 /* Reducir el tamaño del top-bar cuando se hace scroll */
 .top-bar.scrolled {
+  height: 60px; /* Altura reducida en scroll */
   padding: 5px 0; /* Disminuye el espaciado al hacer scroll */
   
 }
@@ -28,7 +29,7 @@
 
 /* Reducir el tamaño del logo cuando se hace scroll */
 .top-bar.scrolled .logo img {
-  height: 30px; /* Tamaño del logo al hacer scroll */
+  height: 60px; /* Tamaño del logo al hacer scroll */
 }
 
 /* Botones de iniciar sesión y suscribirse */
@@ -57,11 +58,19 @@
 /* Posiciona la barra de búsqueda */
 .search-bar-container {
   position: absolute;
-  left: 10px; /* Ajusta la distancia desde el borde izquierdo */
-  top: 50%; /* Centra la barra de búsqueda verticalmente */
-  transform: translateY(-50%); /* Centrado vertical */
-  z-index: 1001; /* Asegura que esté sobre otros elementos */
+  left: 10px; /* Completamente a la izquierda */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  width: 300px; /* Ajusta según el ancho que desees para la barra */
 }
+/* Ajusta el input de la barra de búsqueda */
+.search-bar input {
+  width: 100%; /* Asegura que el input no exceda el contenedor */
+  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
+}
+
+
 /* Contenedor del menú de usuario */
 .user-menu-wrapper {
   position: absolute;

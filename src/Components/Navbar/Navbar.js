@@ -1,15 +1,19 @@
 // src/Components/Navbar/Navbar.js 
 
 import React from 'react'; 
+import { Link } from 'react-router-dom'; // Importa Link para la navegación interna
+
 import './Navbar.css';
 import SubcategoryLinks from '../SubcategoryLinks/SubcategoryLinks';
 import useHoverWithDelay from '../../hooks/useHoverWithDelay'; 
 import useScrollDirection from '../../hooks/useScrollDirection'; 
 
 const Navbar = () => { 
+
   const { activeSubcategories, handleMouseEnter, handleMouseLeave } = useHoverWithDelay(400); 
   const { isScrollingDown, isScrolled } = useScrollDirection(); 
 
+ 
   return ( 
       /* Barra de navegación */
     <div className={`navbar-wrapper ${isScrollingDown ? 'scroll-up' : 'scroll-down'} ${isScrolled ? 'scrolled-navbar' : ''}`}> 
@@ -125,6 +129,11 @@ const Navbar = () => {
               </div> 
             )} 
           </li> 
+
+          {/* BLOG (sin subcategorías) */}
+          <li className="nav-item">
+            <Link to="/blog">BLOG</Link> {/* Redirige directamente a la página de blog */}
+          </li>
         </ul> 
       </nav> 
     </div> 

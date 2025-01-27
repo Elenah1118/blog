@@ -1,3 +1,4 @@
+//Carro de la compra
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CartIcon.css';

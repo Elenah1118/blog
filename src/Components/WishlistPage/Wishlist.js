@@ -1,3 +1,5 @@
+//Los Likes y lista de deseos
+
 // src/Components/Wishlist/Wishlist.js
 import React from 'react';
 import './Wishlist.css';

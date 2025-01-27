@@ -8,14 +8,20 @@ import ProfilePage from './pages/ProfilePage';
 import WishlistPage from './pages/WishlistPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import useWishlist from './hooks/useWishlist';
+import BlogPage from './pages/BlogPage'; // Importa tu página de blog
+import RegisterPage from './pages/RegisterPage';
+
 
 // Importación de imágenes para el carrusel
-import carouselImage from './assets/images/BlogUp.jpg';
-import carouselImage2 from './assets/images/Maquillaje.png';
+import carouselImage from './assets/images/elegant_blue.jpg';
+import carouselImage2 from './assets/images/elegant_blue.jpg';
+import carouselImage3 from './assets/images/elegant_blue.jpg';
+import carouselImage4 from './assets/images/elegant_blue.jpg';
+
 
 function App() {
   const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
-  const images = [carouselImage, carouselImage2];
+  const images = [carouselImage, carouselImage2, carouselImage3, carouselImage4];
 
   return (
     <Router>
@@ -30,6 +36,9 @@ function App() {
           path="/wishlist"
           element={<WishlistPage wishlistItems={wishlistItems} removeFromWishlist={removeFromWishlist} />}
         />
+                <Route path="/register" element={<RegisterPage />} />
+
+                <Route path="/blog" element={<BlogPage />} /> {/* Agrega esta línea */}
       </Routes>
     </Router>
   );

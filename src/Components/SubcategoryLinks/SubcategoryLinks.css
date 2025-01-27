@@ -9,7 +9,7 @@
   }
   
   /* Cada enlace de imagen */
-  .link-item {
+  .link-subcategory-item {
     display: flex;
     justify-content: space-between; /* Espacio entre las imágenes */
     text-align: left; /* Alineación del texto */
@@ -20,7 +20,7 @@
   }
   
   /* Imagen en cada enlace */
-  .link-item img {
+  .link-subcategory-item img {
     width: 100%;
     height: auto; /*se ajusta la altura sefún lo de dentro*/
     border-radius: 5px; /* Bordes redondeados */
@@ -29,7 +29,7 @@
   }
   
   /* Título de cada enlace de imagen */
-  .link-item h3 {
+  .link-subcategory-item h3 {
     font-size: 16px;
     margin: 5px 0;
     font-weight: bold; /*exto aparezca más grueso o en negrita*/
@@ -37,7 +37,7 @@
   }
   
   /* Descripción debajo del título */
-  .link-item p {
+  .link-subcategory-item p {
     font-size: 14px;
     color: #666;
     margin: 0;
@@ -45,10 +45,10 @@
   }
   
   /* Efecto hover para cada enlace de imagen */
-  .link-item:hover {
+  .link-subcategory-item:hover {
     transform: scale(1.01); /* Agranda ligeramente el contenedor */
   }
   
-  .link-item:hover h3, .link-item:hover p {
+  .link-subcategory-item:hover h3, .link-subcategory-item:hover p {
     color: #000; /* Cambia el color del texto en hover */
   }

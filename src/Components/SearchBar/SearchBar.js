@@ -1,3 +1,5 @@
+//Buscador en el Header a la izquierda
+
 // src/Components/SearchBar/SearchBar.js
 import React from 'react';
 import './SearchBar.css';

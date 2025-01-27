@@ -1,3 +1,4 @@
+//Barra de abajo con las ventajas de nuestra página
 import React from 'react';
 import './AppAdvantages.css';
 

@@ -1,3 +1,6 @@
+//Menú en el Header Logado del perfil que abre un 
+//pequeño contenedor con editar perfil o inciar sesion
+
 // src/Components/UserMenu/UserMenu.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

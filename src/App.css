@@ -10,3 +10,15 @@ body {
   text-align: center;
   
 }
+
+/* Variables globales */
+:root {
+  --header-height: 80px;
+  --navbar-height: 50px;
+  --header-scrolled-height: 60px;
+}
+
+/* Ajuste para el contenedor principal */
+.register-main {
+  margin-top: var(--header-navbar-height);
+}

@@ -1,26 +1,29 @@
 // src/pages/HomePage.js
+
 import React from 'react';
-import Header from '../Components/Header/Header';
-import Navbar from '../Components/Navbar/Navbar';
+import LayoutMainPage from '../Components/Layout/LayoutMainPage';
 import Carousel from '../Components/Carousel/Carousel';
-import MainContent from '../Components/MainContent/MainContent';
-import PostList from '../Components/PostList/PostList';
-import AppAdvantages from '../Components/AppAdvantages/AppAdvantages';
-import Footer from '../Components/Footer/Footer';
-import ChatIcon from '../Components/ChatIcon/ChatIcon';
 
 const HomePage = ({ images }) => {
   return (
-    <div className="HomePage">
-      <Header />
-      <Navbar />
-      <Carousel images={images} />
-      <MainContent />
-      <PostList showHeartIcons={false} />
-      <AppAdvantages />
-      <ChatIcon />
-      <Footer />
-    </div>
+    <LayoutMainPage>
+      {/* Sección del Carrusel */}
+      <section className="home-carousel">
+        <Carousel images={images} />
+      </section>
+
+      {/* Sección Sobre Nosotros */}
+      <section className="home-about">
+        <h1>Sobre Nosotros</h1>
+        <p>Conoce más sobre nuestra misión y valores.</p>
+      </section>
+
+      {/* Sección de Productos Destacados (opcional) */}
+      <section className="home-featured">
+        <h2>Productos Destacados</h2>
+        <p>Explora nuestros productos más populares.</p>
+      </section>
+    </LayoutMainPage>
   );
 };
 
