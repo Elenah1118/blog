@@ -9,7 +9,7 @@ import WishlistPage from './pages/WishlistPage';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import useWishlist from './hooks/useWishlist';
 import BlogPage from './pages/BlogPage'; // Importa tu página de blog
-import RegisterPage from './pages/RegisterPage';
+import RegisterPage from './pages/registerPage';
 
 
 // Importación de imágenes para el carrusel
