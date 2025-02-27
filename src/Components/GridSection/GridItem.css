@@ -1,0 +1,143 @@
+/* 📌 Estilos de cada elemento en el Grid */
+.grid-item {
+  background-size: cover; /* 📌 Ajusta la imagen al tamaño del contenedor */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: left;
+  /*padding: 30px;*/
+  transition: transform 0.3s ease;
+  height: auto; /* ✅ Se ajusta automáticamente */
+  min-height: 500px; /* 🔹 Evita que se encojan demasiado */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔹 Centra verticalmente */
+  justify-content: center; /* 📌 Centra el contenido en el grid */
+  /* word-wrap: break-word; /* ✅ Si hay texto largo, lo corta en lugar de hacer crecer el div */
+  width: 100%; /* 📌 Establece el tamaño por defecto */
+  min-width: 250px;
+  position: relative; /* 📌 Para que la capa overlay esté sobre la imagen */
+  margin: 0 auto; /* ✅ Centra el contenedor dentro del padre */
+  justify-content: center; /* ✅ Asegura que los elementos se alineen centrados */
+
+}
+
+
+
+
+
+
+
+
+
+/* 📌 Capa oscura semitransparente */
+.grid-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* 🔹 Ajusta la transparencia (0.4 = 40%) */
+  z-index: 1;
+}
+
+
+
+/* 📌 Contenido sobre la imagen */
+.grid-item .grid-content {
+  position: relative;
+  z-index: 2; /* 📌 Asegura que el texto y botones estén sobre la capa oscura */
+  color: white;
+  text-align: center;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔹 Distribuye los elementos dentro del grid-content */
+  height: 30%; /* 🔹 Ocupa toda la altura del grid-item */
+}
+
+/* 📌 Efecto hover para más visibilidad */
+.grid-item:hover .overlay {
+  background: rgba(0, 0, 0, 0.2); /* 🔹 Reduce la opacidad en hover */
+}
+
+
+
+
+
+
+
+/* 📌 Capa de transición (color rojo) */
+.grid-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 158, 130, 1); /* 🔹 Color rojo con transparencia */
+  opacity: 0; /* 🔹 Oculto por defecto */
+  transition: opacity 0.5s ease-in-out; /* 🔹 Transición suave */
+  z-index: 1; /* Asegura que el color cubra la imagen */
+}
+
+/* 📌 Efecto hover */
+.grid-item:hover::after {
+  opacity: 1; /* 🔹 Hace visible el color rojo */
+}
+
+
+
+
+
+
+
+
+/* 📌 Efecto hover */
+.grid-item:hover {
+  transform: translateY(-8px);
+}
+
+/* 📌 Imagen dentro del rectángulo */
+.grid-item img {
+  width: 100%;
+  height: 80%; /* 🔹 Hace la imagen más grande */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* 📌 Título */
+.grid-item h3 {
+  font-size: 22px;
+  margin: 15px 0 10px;
+  color: #ffffff;
+}
+
+/* 📌 Descripción */
+.grid-item p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: auto; /* 🔹 Empuja el párrafo hacia arriba */
+  
+}
+
+/* 📌 Botón de Más Información */
+.grid-item .learn-more {
+  display: inline-block;
+  margin-top: 140px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative; /* ✅ Evita que el margen afecte al superior */
+
+
+}
+
+.grid-item .learn-more:hover {
+  color: #000000;
+}

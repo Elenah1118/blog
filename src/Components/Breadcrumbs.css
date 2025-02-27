@@ -1,0 +1,32 @@
+.breadcrumbs {
+    position: relative; /* Permite ajustarlo según el diseño */
+    background-color: #f8f9fa; /* Color suave de fondo */
+    padding: 0px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaciado entre los elementos */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 0; /* Espaciado para evitar que esté pegado */
+    width: 100%; /* 🔥 Se asegura de que se expanda correctamente */
+    margin-top: 0px; /* 🔥 Ajuste fino si aún hay un pequeño espacio */
+
+
+  }
+  
+  .breadcrumbs a {
+    color: #007bff; /* Azul de Bootstrap */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumbs a:hover {
+    color: #0056b3; /* Azul más oscuro */
+  }
+  
+  .breadcrumbs span {
+    color: #6c757d; /* Color gris para separar */
+  }
+  

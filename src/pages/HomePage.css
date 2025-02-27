@@ -1,0 +1,32 @@
+/* Estilos para la página principal */
+
+/* Define el tamaño y la posición de home-carousel */
+.home-carousel {
+    position: relative; /* Necesario para manejar elementos hijos */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho del padre */
+    height: calc(100vh - var(--header-height) - var(--navbar-height)); /* ✅ Usa los valores unificados */
+    /* margin-top: calc(var(--header-height, 80px) + var(--navbar-height, 40px)); /* Comienza justo debajo del Header y Navbar */
+    overflow: hidden; /* Oculta cualquier contenido que se salga del contenedor */
+    display: flex; /* Flexbox para centrar elementos si es necesario */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    box-sizing: border-box; /* Incluye paddings y bordes dentro de las dimensiones */
+}
+
+/* Ajusta el tamaño de la carousel-container */
+/* .carousel-container { */
+    /* width: 100%; /* Ocupa todo el ancho disponible */
+    /* height: 100%; /* Asegúrate de que ocupe todo el espacio disponible dentro de home-carousel */
+    /* display: flex;
+    /* align-items: center;
+    /* justify-content: center;
+    /* position: relative; /* Para posicionar elementos hijos como los indicadores */
+    /* overflow: hidden; /* Evita desbordamientos */
+/* }*/
+
+/* Estilo para las imágenes del carrusel */
+.carousel-container img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe toda la altura del contenedor */
+    object-fit: cover; /* Cubre todo el contenedor sin deformarse */
+}

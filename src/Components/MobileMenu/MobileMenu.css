@@ -1,0 +1,110 @@
+/* 📌 Estilos base para el menú móvil */
+.mobile-menu {
+  position: fixed;
+  top: 70px; /* 📌 Aparece justo debajo del header */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%; /* 📌 Ajustar el ancho para que quede centrado */
+  max-width: 100%; /* 📌 Máximo ancho del menú */
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 📌 Cuando el menú está abierto */
+.mobile-menu.open {
+  background: #2a9e82;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 📌 Botón para cerrar el menú */
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  text-align: right;
+  padding: 10px;
+  width: 100%;
+  color: white;
+}
+
+/* 📌 Lista de categorías */
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* 📌 Evita que ocupe toda la pantalla */
+  overflow-y: auto; /* 📌 Permite hacer scroll si hay muchas categorías */
+  color: white; /* ✅ Hace que el texto de las categorías sea blanco */
+}
+
+/* 📌 Estilos para cada categoría */
+.mobile-menu-item {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* ✅ Línea divisoria blanca con transparencia */
+}
+
+/* 📌 Botón de la categoría */
+.category-button {
+  display: block; /* Hace que ocupe todo el ancho */
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  color: rgb(255, 255, 255); /* ✅ Hace que el texto del botón sea blanco */
+}
+
+/* 📌 ✅ NUEVO: Estilo para los enlaces de las categorías (para que se vean igual que los botones) */
+.category-link {
+  display: block; /* Hace que ocupe todo el ancho */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  color: rgb(255, 255, 255); /* ✅ Mismo color que los botones */
+  cursor: pointer;
+}
+
+/* 📌 Subcategorías */
+.mobile-subcategories {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.2); /* ✅ Fondo más claro para subcategorías */
+  border-radius: 5px;
+}
+
+.mobile-subcategories li {
+  padding: 8px;
+  text-align: center;
+}
+
+/* 📌 Estilo de los enlaces de subcategorías */
+.mobile-subcategories a {
+  text-decoration: none;
+  color: white; /* ✅ Hace que los enlaces sean blancos */
+  font-size: 16px;
+}
+
+/* 📌 Hover */
+.mobile-menu-list a:hover,
+.mobile-subcategories a:hover,
+.category-link:hover { /* ✅ Se añade hover también para las categorías con enlace */
+  color: #000000; /* ✅ Cambia a negro en hover para mejor visibilidad */
+}
+.category-button:hover { /* ✅ Se añade hover también para las categorías con enlace */
+  color: #000000; /* ✅ Cambia a negro en hover para mejor visibilidad */
+}

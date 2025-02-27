@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { WishlistProvider } from "./context/WishlistContext"; // Importamos el contexto
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <WishlistProvider>
+      <App />
+    </WishlistProvider>
   </React.StrictMode>
 );
 

@@ -1,6 +1,6 @@
 /* ✅ Estructura principal de la página de registro */
 .register-page { 
-  margin-top: var(--header-navbar-height); /* Usa la variable global */
+  margin-top: calc(var(--header-height) + var(--navbar-height)); /* ✅ Usa la misma lógica */
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Asegura que la página ocupe al menos toda la altura visible */

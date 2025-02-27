@@ -18,10 +18,13 @@ useEffect(() => {
     const handleScroll = () => {
        const scrollTop = window.scrollY;
        
-  
-       setIsScrollingDown(scrollTop > lastScrollTop);
-       setIsScrolled(scrollTop > 100);
-       setLastScrollTop(scrollTop);
+      // Detecta la dirección del scroll
+      setIsScrollingDown(scrollTop > lastScrollTop && scrollTop > 0);
+      // Detecta si hemos hecho scroll (para manejar el estado en el tope)
+      setIsScrolled(scrollTop > 0);
+      // Actualiza la última posición de scroll
+      setLastScrollTop(scrollTop);
+
     };
   
     window.addEventListener('scroll', handleScroll);

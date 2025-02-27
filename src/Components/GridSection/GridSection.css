@@ -1,0 +1,53 @@
+/* 📌 Contenedor principal de la sección */
+.responsive-grid-section {
+    width: 100vw; /* 🔹 100% del ancho de la ventana */
+    min-width: 100%; /* 🔹 Asegura que no haya restricciones */
+    background-color: #000000c2; /* Fondo gris claro */
+    padding: 50px 20px; /* Espaciado interno */
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* ✅ Evita que el contenido se "escape" */
+
+}
+
+/* 📌 Contenedor del Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 🔹 3 columnas por fila en pantallas grandes */
+    gap: 25px; /* 🔹 Espaciado entre elementos */
+    max-width: 1350px; /* 🔹 Ancho máximo */
+    width: 100%;
+    justify-content: center; /* 📌 Asegura que los elementos queden centrados */
+
+
+    /* 🔹 Inicialmente oculto */
+    opacity: 0;
+    transform: translateY(300px); /* 🔹 Comienza desplazado */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+}
+
+
+
+
+/* 📌 Cuando el Grid es visible, aparece suavemente */
+.grid-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* 📌 Cuando la pantalla se hace más estrecha, cambia a 2 columnas */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+}
+
+/* 📌 En móviles, mostrar solo 1 por fila */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

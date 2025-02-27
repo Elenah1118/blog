@@ -1,115 +1,211 @@
-/* Contenedor del Carrusel */
-#contenido.carousel-container {
-  position:relative;
-  width: 100%; /* 95% del ancho de la página */
-  height: 80vh; /* 60% del alto de la página */
-  top: 133px;
-  margin: auto; /* Centrado horizontal */
-  margin-top: 20px;
-  background-color: rgb(218, 218, 218); /* Fondo gris claro */
-  overflow: hidden; /* Oculta el contenido fuera del contenedor */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+/* Contenedor principal del carrusel */
+.carousel-wrapper {
+  width: 100%; /* El carrusel ocupa todo el ancho disponible */
+  height: 100%; /* El carrusel ocupa toda la altura asignada por el contenedor padre */
+  overflow: visible !important; /* Asegura que los elementos escalados sean visibles */
+  display: flex; /* Utiliza Flexbox para alinear elementos */
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  position: absolute; /* Posición relativa para permitir elementos posicionados absolutamente */
+  box-sizing: border-box; /* Incluye el padding y bordes en el ancho/alto total */
 }
 
-/* Padding adicional si es necesario 
-#contenido {
-  padding-top: 180px;
-}*/
-
-/* Slide del carrusel */
-.carousel-slide {
+/* 📌 Estilos para el fondo de cada diapositiva */
+.carousel-item {
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   display: flex;
+  align-items: stretch; /* Permite que los hijos ocupen toda la altura */
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  color: rgb(35, 34, 34);
+  padding: 0px;
+  position: relative;
+  overflow: visible !important;
+
+}
+
+/* 📌 Contenedor de los textos del carrusel */
+.carousel-texts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que los textos interfieran con los clics */
+}
+
+/* 📌 Texto genérico del carrusel */
+.carousel-text {
+  position: absolute;
+  text-align: center;
+  white-space: nowrap; /* 👈 Evita que el título se divida en varias líneas */
+  max-width: 90%; /* 👈 Ajusta el ancho para que el texto no se salga del carrusel */
+}
+
+/* 📌 Estilos individuales por tipo de texto */
+.carousel-text.pre-title {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.carousel-text.title {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.carousel-text.subtitle {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.carousel-text.paragraph {
+  font-size: 25px;
+  font-weight: normal;
+  white-space: normal; /* 👈 Permite que los párrafos sí puedan dividirse en varias líneas */
+  max-width: 80%; /* 👈 Evita que los párrafos sean demasiado largos */
+}
+
+/* 📌 Contenedor de productos */
+.carousel-products {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Para evitar interferencia con clics */
+}
+
+/* 📌 Imágenes de productos */
+.carousel-product {
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* 📌 Efecto hover en las imágenes */
+/*.carousel-product:hover {
+  transform: scale(1.1);
+}*/
+
+
+/* 📌 Estilo del botón de subir archivo */
+.upload-button {
+  display: inline-block; /* Evita problemas con el escalado */
+  position: absolute;
+  background-color: #2a9e82;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transform-origin: center; /* 📌 Asegura que el escalado sea desde el centro */
+  transform: translate(-50%, -50%); /* Mantiene la posición y escala correctamente */
+}
+
+.upload-button:hover {
+  transform: translate(-50%, -50%) scale(1.03); /* ✅ Expande sin mover */
+}
+
+/* Contenedor de la diapositiva actual */
+.carousel-slide {
+  width: 100%; /* La diapositiva ocupa todo el ancho */
+  height: 100%; /* La diapositiva ocupa toda la altura */
+  display: flex; /* Flexbox para centrar contenido */
   align-items: center; /* Centra verticalmente */
   justify-content: center; /* Centra horizontalmente */
-  overflow: hidden;
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga */
 }
 
-/* Ajustar el enlace (<a>) dentro del carrusel */
+/* Enlace dentro de la diapositiva */
 .carousel-slide a {
-  display: block; /* Hace que el enlace ocupe todo el espacio disponible */
+  display: block; /* El enlace ocupa todo el espacio disponible */
   width: 100%; /* Ocupa todo el ancho del contenedor */
   height: 100%; /* Ocupa toda la altura del contenedor */
-  overflow: hidden; /* Evita que la imagen se salga */
+  overflow: hidden; /* Oculta contenido adicional */
 }
 
-/* Imagen del carrusel */
+/* Imagen dentro de la diapositiva */
 .carousel-slide img {
-  width: 100%;
-  height: 100%; /* Ajusta a la altura del contenedor */
-  max-width: 100%;
-  object-fit:unset;
-  display: block;
-  margin: auto;
-  box-sizing: border-box;
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: 100%; /* La imagen ocupa toda la altura del contenedor */
+  object-fit: cover; /* La imagen se recorta para llenar el contenedor */
+  display: block; /* Evita espacios adicionales debajo de la imagen */
 }
 
-/* Botones de navegación */
+/* Botones de navegación del carrusel */
 .carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color: rgba(16, 16, 16, 0.491);
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-  padding: 5px;
-  transition: transform 0.3s ease;
+  position: absolute; /* Posiciona los botones dentro del contenedor relativo */
+  top: 50%; /* Centra verticalmente los botones */
+  transform: translateY(-50%); /* Ajusta el centro exacto verticalmente */
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  color: rgba(16, 16, 16, 0.491); /* Color gris translúcido */
+  font-size: 2rem; /* Tamaño de fuente grande para las flechas */
+  cursor: pointer; /* Cambia el cursor al puntero en hover */
+  z-index: 10; /* Asegura que los botones estén sobre otros elementos */
+  padding: 5px; /* Espaciado interno */
+  transition: transform 0.3s ease; /* Animación suave al hacer hover */
 }
 
+/* Botón de navegación izquierda */
 .carousel-button.left {
-  left: 10px;
+  left: 10px; /* Posición a la izquierda del contenedor */
 }
 
+/* Efecto hover para el botón izquierdo */
 .carousel-button.left:hover {
-  transform: translate(-8px, -50%);
+  transform: translate(-8px, -50%); /* Desplaza el botón un poco más a la izquierda */
 }
 
+/* Botón de navegación derecha */
 .carousel-button.right {
-  right: 10px;
+  right: 10px; /* Posición a la derecha del contenedor */
 }
 
+/* Efecto hover para el botón derecho */
 .carousel-button.right:hover {
-  transform: translate(8px, -50%);
+  transform: translate(8px, -50%); /* Desplaza el botón un poco más a la derecha */
 }
 
-/* Indicadores del carrusel */
+/* Indicadores de las imágenes del carrusel */
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 5%; /* Cambia el valor fijo por un porcentaje relativo al alto del contenedor */
+  left: 50%; /* Centra horizontalmente los indicadores */
+  transform: translateX(-50%); /* Ajusta para centrar exactamente */
   display: flex;
   justify-content: center;
+  gap: 8px; /* Espacio entre indicadores */
+  z-index: 5; /* Asegúrate de que los indicadores estén por encima del contenido */
 }
 
+
+/* Estilo de los indicadores */
 .indicator {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(13, 125, 244, 0.4); /* Más transparente */
-  margin: 0 5px;
-  transition: transform 0.3s ease;
+  width: 10px; /* Tamaño del indicador */
+  height: 10px; /* Tamaño del indicador */
+  background-color: #2a9e82; /* Color azul translúcido */
+  margin: 0 5px; /* Espacio entre indicadores */
+  border-radius: 50%; /* Hace los indicadores circulares */
+  transition: transform 0.3s ease; /* Transición suave para el escalado */
 }
 
+/* Indicador activo */
 .indicator.active {
-  transform: scale(1.5);
+  transform: scale(1.5); /* Escala el indicador activo */
 }
 
-/* Progreso del indicador activo */
+/* Indicador de progreso animado */
 .progress-ring {
-  position: absolute;
-  top: -2.5px;
-  left: -2.5px;
+  position: absolute; /* Posiciona el anillo relativo al indicador */
+  top: -2.5px; /* Ajusta la posición para centrar el anillo */
+  left: -2.5px; /* Ajusta la posición para centrar el anillo */
 }
 
 .progress-ring circle {
-  transition: stroke-dashoffset 0.1s linear;
+  transition: stroke-dashoffset 0.1s linear; /* Animación suave para el progreso */
 }
