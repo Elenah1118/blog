@@ -2,6 +2,7 @@
 import React from 'react';
 import useRoutesList from "../hooks/useRoutesList";
 import LayoutMainPage from '../Components/Layout/LayoutMainPage'; // ✅ Importa LayoutMainPage
+import TablaDinamica from "../Components/plantillaTabla/TablaDinamica"; // ✅ Importa la tabla dinámica
 import './BlogPage.css'; // Asegúrate de tener este archivo con los estilos adecuados
 
 
@@ -11,9 +12,11 @@ const BlogPage = () => {
 
   return (
     <LayoutMainPage> {/* ✅ Usa LayoutMainPage aquí */}
-      <div className="blog-main-content">
 
-      </div>
+
+          {/* ✅ Renderiza la tabla aquí */}
+          <TablaDinamica />
+
 
     </LayoutMainPage>
   );

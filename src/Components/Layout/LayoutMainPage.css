@@ -11,6 +11,18 @@
     max-width: 100vw; /* ✅ Evita recortes laterales */
     overflow-x: hidden; /* ✅ Evita desplazamientos laterales indeseados */
   }
+
+
+
+/* ✅ Ajuste para móviles y tablets (máx. 768px) */
+@media (max-width: 768px) {
+  .layout-main-page {
+      padding-top: var(--header-height); /* 🔹 Excluye el Navbar en pantallas pequeñas */
+  }
+}
+
+
+
   
   /* ✅ Contenido principal de la página */
   .layout-main-content {
