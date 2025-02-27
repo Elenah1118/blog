@@ -2,7 +2,7 @@ import React from 'react';
 import './ArticleAuthorHeader.css';
 import articleData from './articleData'; // 🔹 Asegúrate de que la importación es correcta
 
-const ArticleAuthorHeader = () => {
+const ArticleAuthorHeader = ({ children }) => {
   return (
     <article className="article">
       {/* Título */}
@@ -42,7 +42,11 @@ const ArticleAuthorHeader = () => {
       </div>
 
       {/* Espacio en blanco para contenido futuro */}
-      <div className="article-content"></div>
+      <div className="article-content">
+
+        {children}
+
+      </div>
 
       {/* Contenedor final en gris claro */}
       <div className="article-footer">

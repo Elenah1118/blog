@@ -12,12 +12,12 @@ const BlogPage = () => {
 
   return (
     <LayoutMainPage> {/* ✅ Usa LayoutMainPage aquí */}
-     <ArticleAuthorHeader/>
 
+     <ArticleAuthorHeader>
 
-          {/* ✅ Renderiza la tabla aquí */}
-          <TablaDinamica />
-
+       {/* ✅ Renderiza la tabla aquí */}
+       <TablaDinamica />
+     </ArticleAuthorHeader>
 
     </LayoutMainPage>
   );
