@@ -1,0 +1,148 @@
+/* Contenedor principal */
+.article {
+    font-family: 'Arial', sans-serif;
+    max-width: 90%;
+    margin-left: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: #ffffff;
+}
+
+/* Título */
+.article__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Contenedor del autor inicial */
+.article-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f0f7f5; /* Verde claro muy sutil */
+    border-radius: 8px;
+}
+
+/* Imagen del autor */
+.article-author__image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* Nombre del autor */
+.article-author__name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.article-author__name a {
+    color: #2a9e82;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-author__name a:hover {
+    color: #1f7a65; /* Un verde más oscuro al pasar el mouse */
+}
+
+/* Rol del autor */
+.article-author__role {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Contenedor de fecha y tiempo de lectura */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Iconos de calendario y reloj */
+.icon {
+    width: 16px;
+    height: 16px;
+    fill: #2a9e82; /* Ahora verde corporativo */
+    transition: fill 0.3s ease, transform 0.2s ease;
+}
+
+/* Espaciado entre icono y texto */
+.article-meta__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Ajuste específico para los iconos */
+.icon-calendar, .icon-clock {
+    width: 18px;
+    height: 18px;
+    fill: #2a9e82; /* Verde corporativo */
+    opacity: 0.9; /* Un poco más fuerte */
+}
+
+.icon-calendar:hover, .icon-clock:hover {
+    fill: #1f7a65; /* Verde más oscuro en hover */
+    transform: scale(1.1); /* Efecto zoom suave */
+    opacity: 1;
+}
+
+/* Espacio en blanco para contenido */
+.article-content {
+    min-height: 200px; /* Mantiene un mínimo de espacio */
+    max-width: 100%; /* Evita que el texto se desborde */
+    line-height: 1.6; /* Mejora la legibilidad */
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+/* Contenedor final en gris claro */
+.article-footer {
+    display: flex;
+    align-items: center;
+    background-color: #f0f7f5; /* Un fondo suave para diferenciar */
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen más grande del autor en el pie */
+.article-footer__image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-footer__image:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Nombre en el footer */
+.article-footer__name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Descripción del autor en el footer */
+.article-footer__desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}

@@ -1,32 +1,64 @@
 .breadcrumbs {
-    position: relative; /* Permite ajustarlo según el diseño */
-    background-color: #f8f9fa; /* Color suave de fondo */
-    padding: 0px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Espaciado entre los elementos */
-    border-radius: 5px; /* Bordes redondeados */
-    margin: 0; /* Espaciado para evitar que esté pegado */
-    width: 100%; /* 🔥 Se asegura de que se expanda correctamente */
-    margin-top: 0px; /* 🔥 Ajuste fino si aún hay un pequeño espacio */
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; /* Fondo blanco liso */
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border-radius: 8px;
+  width: 100%;
+  gap: 8px;
+}
 
+/* Asegura que "Inicio" sea negro y sin subrayado */
+.breadcrumbs-home {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none !important; /* 🔥 Evita que los estilos de enlace predeterminados se apliquen */
+  color: black !important; /* 🔥 Fuerza el color negro */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
-  }
-  
-  .breadcrumbs a {
-    color: #007bff; /* Azul de Bootstrap */
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .breadcrumbs a:hover {
-    color: #0056b3; /* Azul más oscuro */
-  }
-  
-  .breadcrumbs span {
-    color: #6c757d; /* Color gris para separar */
-  }
-  
+.breadcrumbs-home:hover {
+  color: #2a9e82 !important; /* Verde corporativo al pasar el cursor */
+}
+
+/* Estilo del ícono */
+.breadcrumbs-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilos de los demás enlaces en la ruta */
+.breadcrumbs a {
+  color: #007bff; /* Color azul por defecto */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #2a9e82; /* Verde corporativo */
+}
+
+/* Separador personalizado */
+.breadcrumbs-separator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Estilo del separador "›" */
+.separator {
+  color: #6c757d;
+  font-weight: bold;
+  font-size: 16px; /* Tamaño adecuado para el separador */
+}
+
+/* Última ruta (actual) en la breadcrumb */
+.breadcrumbs-current {
+  color: #495057;
+  font-weight: bold;
+}
