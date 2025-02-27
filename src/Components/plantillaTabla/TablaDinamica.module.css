@@ -1,0 +1,109 @@
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ Centra todo el contenido */
+}
+
+/* ✅ Contenedor general para todo el contenido de texto y la tabla */
+.contenedorContenido {
+    width: 90%; /* ✅ Coincide con el ancho de la tabla */
+    max-width: 1200px;
+    text-align: left; /* ✅ Asegura que el texto dentro quede alineado a la izquierda */
+}
+
+/* ✅ Estilos del título */
+.titulo {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* ✅ Estilos de la descripción */
+.descripcion {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
+/* ✅ Estilos del subtítulo */
+.subtitulo {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* ✅ Contenedor de la tabla centrado */
+.tablaContainer {
+    width: 90%; /* ✅ Coincide con el ancho del contenido de texto */
+    max-width: 1200px;
+    margin-top: 0px;
+    padding: 0px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ Tabla alineada con el contenido de texto */
+.tabla {
+    width: 100%; /* ✅ Ahora la tabla ocupa el ancho del contenedor */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.2px solid #ddd; /* ✅ Borde exterior */
+}
+
+/* ✅ Bordes internos para cada celda */
+.tabla th,
+.tabla td {
+    padding: 12px;
+    text-align: center;
+    border: 0.2px solid #ddd;
+}
+
+/* ✅ Estilizado de los encabezados */
+.tabla th {
+    background: #2a9e83;
+    color: white;
+    font-weight: bold;
+}
+
+/* ✅ Efecto hover */
+.tabla tr:hover {
+    background: #f1f1f1;
+}
+
+/* ✅ Estilos del pie de tabla (fuera de la tabla) */
+.pie {
+    width: 100%; /* ✅ Coincide con la tabla */
+    text-align: right; /* ✅ Alineado a la izquierda */
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* ✅ Estilos del párrafo final */
+.textoFinal {
+    width: 100%; /* ✅ Coincide con la tabla */
+    text-align: left; /* ✅ Alineado a la derecha */
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* ✅ Aplica negrita solo a las celdas de la primera columna (excluyendo el encabezado) */
+.tabla tbody td:first-child {
+    font-weight: bold; /* ✅ Solo afecta el contenido de la columna "Hora", NO el encabezado */
+}
