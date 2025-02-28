@@ -6,13 +6,14 @@ import Carousel from '../Components/Carousel/Carousel';
 import carouselSlides from '../data/carouselData'; // ✅ Importa los datos aquí
 import './HomePage.css';
 import GridSection from "../Components/GridSection/GridSection";
-
-
-
+import ParallaxBackground from "../Components/ParallaxBackground/ParallaxBackground";
 
 const HomePage = ({ images }) => {
   return (
     <LayoutMainPage>
+      {/* Sección del Parallax */}
+      <ParallaxBackground />
+      
       {/* Sección del Carrusel */}
       <section className="home-carousel">
       <Carousel slides={carouselSlides} />  {/* ✅ Pasa los slides correctamente */}
@@ -24,15 +25,10 @@ const HomePage = ({ images }) => {
         <p>Conoce más sobre nuestra misión y valores.</p>
       </section>
 
-
       {/* Sección Sobre Nosotros */}
       <section className="grid-section">
-
       <GridSection />
-
       </section>
-
-
 
       {/* Sección de Productos Destacados (opcional) */}
       <section className="home-featured">

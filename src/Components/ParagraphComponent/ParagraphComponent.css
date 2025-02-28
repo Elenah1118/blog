@@ -1,0 +1,30 @@
+/* Estilos para el título (h2) */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para el párrafo (p) */
+p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Enlace dentro del párrafo */
+p a {
+    color: #00796B;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
