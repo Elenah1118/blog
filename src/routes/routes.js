@@ -5,6 +5,9 @@ const routes = [
     { path: "/wishlist", name: "Wishlist", component: "WishlistPage" },
     { path: "/register", name: "Registro", component: "RegisterPage" },
     { path: "/blog", name: "Blog", component: "BlogPage" },
+    { path: "/novedades", name: "Novedades", component: "NovedadesPage" }, // ✅ Nueva página
+    { path: "/luzbarata", name: "Luz Barata", component: "LuzBarataPage" },
+
   ];
   
   export default routes;

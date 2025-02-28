@@ -5,7 +5,7 @@ const categories = [
       subcategories: [],
     },
     {
-      id: "luzBarata",
+      id: "luzbarata",
       name: "Luz Barata",
       subcategories: [
         { id: "lipstick", name: "Lipstick" },
@@ -19,24 +19,24 @@ const categories = [
       id: "instalacionesElectricas",
       name: "Instalaciones Eléctricas",
       subcategories: [
-        { id: "foundation", name: "Montajes Eléctricos" },
-        { id: "primer", name: "Boletín y Proyectos" },
-        { id: "powder", name: "Reparaciones de Averías" },
-        { id: "concealer", name: "Mantenimientos Eléctricos" },
-        { id: "blusher", name: "Domótica" },
-        { id: "bronzer", name: "Telecomunicaciones" },
+        { id: "montajeselectricos", name: "Montajes Eléctricos" },
+        { id: "boletinyproyectos", name: "Boletín y Proyectos" },
+        { id: "reparacionesdeaverias", name: "Reparaciones de Averías" },
+        { id: "mantenimientoselectricos", name: "Mantenimientos Eléctricos" },
+        { id: "domotica", name: "Domótica" },
+        { id: "telecomunicaciones", name: "Telecomunicaciones" },
       ],
     },
     {
       id: "placasSolares",
       name: "Placas Solares",
       subcategories: [
-        { id: "comofunciona", name: "Como Funciona" },
+        { id: "comofunciona", name: "Como Funciona" }, /* Mirar ejemplo en: "https://www.holaluz.com/placas-solares"*/
       ],
     },
     {
-      id: "eyes",
-      name: "EYES",
+      id: "cargadoresCoches",
+      name: "Cargadores Coches",
       subcategories: [
         { id: "eyeliner", name: "Eyeliner" },
         { id: "mascara", name: "Mascara" },
@@ -46,8 +46,8 @@ const categories = [
       ],
     },
     {
-      id: "brushes",
-      name: "BRUSHES",
+      id: "camarasSeguridad",
+      name: "Cámaras de Seguridad",
       subcategories: [
         { id: "eyebrushes", name: "Eye Brushes" },
         { id: "facebrushes", name: "Face Brushes" },
@@ -56,7 +56,7 @@ const categories = [
         { id: "beautyblenders", name: "Beauty Blenders" },
       ],
     },
-    {
+    /* {
       id: "tools",
       name: "TOOLS",
       subcategories: [
@@ -71,7 +71,7 @@ const categories = [
       id: "blog",
       name: "BLOG",
       subcategories: [],
-    },
+    }, */
   ];
   
   export default categories;

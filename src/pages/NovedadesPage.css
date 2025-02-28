@@ -1,0 +1,14 @@
+.novedades-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .novedades-content h2 {
+    color: #2a9e82;
+  }
+  
+  .novedades-content p {
+    font-size: 18px;
+    color: #555;
+  }
+  

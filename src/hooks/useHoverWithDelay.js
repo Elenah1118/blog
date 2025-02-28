@@ -1,27 +1,54 @@
 import { useState, useRef } from 'react';
 
-// Este hook personalizado (useHoverWithDelay) permite establecer una subcategoría activa y un temporizador 
-// para desactivarla, y también acepta un argumento opcional delay para el tiempo de espera.
+// Variable global para persistir el "disable hover" tras navegar
+let globalDisableHover = false;
 
-const useHoverWithDelay = (delay = 400) => {
-  const [activeSubcategories, setActiveSubcategories] = useState(null); // Controlar qué subcategoría está activa
-  const timeoutRef = useRef(null);  // Referencia para el temporizador
+const useHoverWithDelay = (delay = 350) => {
+  const [activeSubcategories, setActiveSubcategories] = useState(null);
+  const timeoutRef = useRef(null);
 
-  const handleMouseEnter = (category) => {    // Manejar hover con temporizador
-    clearTimeout(timeoutRef.current);   // Cancelar cualquier temporizador previo
-    setActiveSubcategories(category);   // Establecer la subcategoría activa
+  // Al mover el ratón sobre una categoría, si no está deshabilitado, se espera el retraso
+  const handleMouseEnter = (category) => {
+    if (globalDisableHover) return;
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setActiveSubcategories(category);
+    }, delay);
   };
 
+  // Si el usuario mueve el ratón dentro de la misma zona tras un clic, reactivamos el hover
+  const handleMouseMove = (category) => {
+    if (globalDisableHover) {
+      globalDisableHover = false;
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setActiveSubcategories(category);
+      }, delay);
+    }
+  };
+
+  // Al salir con el ratón se ocultan las subcategorías y se reinicia la bandera
   const handleMouseLeave = () => {
+    clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
-      setActiveSubcategories(null); // Restablecer subcategorías activas
-    }, delay);  // Retraso de 400ms
+      setActiveSubcategories(null);
+      globalDisableHover = false;
+    }, delay);
+  };
+
+  // Al hacer clic se ocultan las subcategorías y se deshabilita temporalmente el hover
+  const handleClick = () => {
+    clearTimeout(timeoutRef.current);
+    setActiveSubcategories(null);
+    globalDisableHover = true;
   };
 
   return {
     activeSubcategories,
     handleMouseEnter,
+    handleMouseMove,
     handleMouseLeave,
+    handleClick,
   };
 };
 

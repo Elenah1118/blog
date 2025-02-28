@@ -14,6 +14,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // import useWishlist from './hooks/useWishlist';
 import BlogPage from './pages/BlogPage'; // Importa tu página de blog
 import RegisterPage from './pages/RegisterPage';
+import NovedadesPage from './pages/NovedadesPage';
+import LuzBarataPage from './pages/LuzBarataPage';
+
 
 
 const components = {
@@ -23,6 +26,8 @@ const components = {
   WishlistPage,
   RegisterPage,
   BlogPage,
+  NovedadesPage,
+  LuzBarataPage,
 };
 
 function App() {
